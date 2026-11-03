@@ -347,22 +347,43 @@
             
             <div class="space-y-4 text-sm text-emerald-200">
                 <div>
-                    <label class="block mb-1 text-emerald-300 font-bold">گوگل جیمنائی اے۔پی۔آئی کی (Gemini API Key):</label>
-                    <input 
-                        type="password" 
-                        id="apiKeyInput" 
-                        class="w-full bg-emerald-900/50 border border-emerald-700 rounded-lg p-2.5 text-left text-xs font-mono text-emerald-100 focus:outline-none focus:border-amber-400" 
-                        placeholder="AQ... یا AIzaSy..."
-                    />
-                    <p class="text-[11px] text-emerald-400/70 mt-1">آپ کی فراہم کردہ اے۔پی۔آئی کی محفوظ کر دی گئی ہے۔ ضرورت پڑنے پر آپ اسے تبدیل بھی کر سکتے ہیں۔</p>
+                    <label class="block mb-1 text-emerald-300 font-bold">گوگل جیمینائی اے۔پی۔آئی کی (Google Gemini API Key):</label>
+                    <div class="relative flex items-center">
+                        <input 
+                            type="text" 
+                            id="apiKeyInput" 
+                            class="w-full bg-emerald-900/50 border border-emerald-700 rounded-lg p-2.5 text-left text-xs font-mono text-emerald-100 focus:outline-none focus:border-amber-400 pl-24" 
+                            placeholder="AQ... یا AIzaSy..."
+                            autocomplete="off"
+                        />
+                        <button type="button" id="testKeyBtn" class="absolute left-1.5 top-1.5 bottom-1.5 px-3 bg-emerald-700 hover:bg-emerald-600 text-amber-200 font-bold rounded text-xs transition border border-emerald-500/50 flex items-center gap-1">
+                            <span>ٹیسٹ کی</span>
+                            <i class="fa-solid fa-bolt text-amber-400"></i>
+                        </button>
+                    </div>
+                    <div id="testResultMsg" class="text-xs mt-1.5 font-urdu p-1.5 rounded hidden"></div>
+
+                    <div class="mt-2.5 p-3 bg-emerald-950/90 border border-amber-500/30 rounded-xl text-xs font-urdu leading-relaxed">
+                        <p class="text-amber-400 font-bold mb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>مفت اے۔پی۔آئی کی (Free Key) حاصل کرنے کا طریقہ:</span>
+                        </p>
+                        <p class="text-emerald-200">1. نیچے دیے گئے لنک پر کلک کریں:</p>
+                        <p class="my-1">
+                            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" class="text-amber-300 underline font-sans font-bold hover:text-white">
+                                🔗 aistudio.google.com/app/apikey
+                            </a>
+                        </p>
+                        <p class="text-emerald-200">2. اپنے گوگل اکاؤنٹ (Gmail) سے سائن ان کر کے <strong>"Create API Key"</strong> پر کلک کریں۔</p>
+                        <p class="text-emerald-200">3. بننے والی کی (جو <code>AIzaSy</code> سے شروع ہوتی ہے) کو کاپی کر کے یہاں پیسٹ کریں۔</p>
+                    </div>
                 </div>
 
                 <div>
                     <label class="block mb-1 text-emerald-300 font-bold">اے۔آئی ماڈل منتخب کریں (Model Selection):</label>
                     <select id="modelSelect" class="w-full bg-emerald-900/50 border border-emerald-700 rounded-lg p-2 text-emerald-100 text-xs focus:outline-none focus:border-amber-400 font-sans">
-                        <option value="gemini-1.5-flash">gemini-1.5-flash (تجویز کردہ / تیز رفتار اور مستحکم)</option>
-                        <option value="gemini-2.0-flash">gemini-2.0-flash (جدید ترین ورژن 2.0)</option>
-                        <option value="gemini-1.5-pro">gemini-1.5-pro (عمیق فقہی تحقیق و تفصیل کے لیے)</option>
+                        <option value="gemini-2.5-flash">gemini-2.5-flash (تجویز کردہ / 100% فعال و تصدیق شدہ)</option>
+                        <option value="gemini-flash-latest">gemini-flash-latest (خودکار فلیش ورژن)</option>
                     </select>
                 </div>
 
@@ -381,8 +402,8 @@
     <!-- Application Script -->
     <script>
         // Default Configuration
-        const DEFAULT_API_KEY = "";
-        const DEFAULT_MODEL = "gemini-1.5-flash";
+        const DEFAULT_API_KEY = "AQ.Ab8RN6IJUi7S36tc4kJ8FX2mIRWhz3o-ZOheOapznydgrq6fNg";
+        const DEFAULT_MODEL = "gemini-2.5-flash";
 
         // Local Storage Keys
         const STORAGE_KEY_API = "mufti_gemini_api_key";
@@ -390,14 +411,13 @@
         const STORAGE_KEY_HISTORY = "mufti_chat_history";
 
         // Current state
-        let apiKey = localStorage.getItem(STORAGE_KEY_API) || "";
-        if (apiKey && apiKey.startsWith("AQ.")) {
-            apiKey = "";
-            localStorage.removeItem(STORAGE_KEY_API);
+        let apiKey = localStorage.getItem(STORAGE_KEY_API) || DEFAULT_API_KEY;
+        if (!apiKey) {
+            apiKey = DEFAULT_API_KEY;
         }
         let selectedModel = localStorage.getItem(STORAGE_KEY_MODEL) || DEFAULT_MODEL;
-        if (!selectedModel || selectedModel.includes("3.8") || selectedModel.includes("2.5") || selectedModel === "gemini-flash-latest") {
-            selectedModel = DEFAULT_MODEL;
+        if (!selectedModel || selectedModel.includes("1.5") || selectedModel.includes("3.8") || selectedModel.includes("2.0")) {
+            selectedModel = "gemini-2.5-flash";
             localStorage.setItem(STORAGE_KEY_MODEL, selectedModel);
         }
 
@@ -594,6 +614,58 @@
             settingsModal.classList.add('hidden');
         });
 
+        
+        // Test API Key Live
+        const testKeyBtn = document.getElementById('testKeyBtn');
+        const testResultMsg = document.getElementById('testResultMsg');
+
+        testKeyBtn?.addEventListener('click', async () => {
+            const key = apiKeyInput.value.trim();
+            if (!key) {
+                showTestFeedback('براہ کرم پہلے اے پی آئی کی (API Key) درج کریں۔', 'error');
+                return;
+            }
+
+            showTestFeedback('گوگل سرور سے کی کی جانچ جاری ہے...', 'info');
+
+            try {
+                const testUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelSelect.value || 'gemini-2.5-flash'}:generateContent?key=${encodeURIComponent(key)}`;
+                const res = await fetch(testUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ role: 'user', parts: [{ text: 'سلام' }] }]
+                    })
+                });
+
+                if (res.ok) {
+                    showTestFeedback('✅ مبارک ہو! یہ کی 100% درست اور گوگل سرور سے منسلک ہے۔ اب "محفوظ کریں" پر کلک فرما لیں۔', 'success');
+                } else {
+                    const err = await res.json().catch(() => ({}));
+                    const msg = err.error?.message || res.statusText;
+                    if (res.status === 401 || (msg && msg.toLowerCase().includes('key'))) {
+                        showTestFeedback(`❌ گوگل نے کی کو غیر درست قرار دیا ہے (Error 401: Invalid API Key)۔ براہ کرم Google AI Studio سے نئی کی حاصل کریں۔`, 'error');
+                    } else {
+                        showTestFeedback(`❌ سرور کی طرف سے خرابی (${res.status}): ${msg}`, 'error');
+                    }
+                }
+            } catch(e) {
+                showTestFeedback('❌ انٹرنیٹ کنکشن میں مسئلہ ہے یا گوگل سرور تک رسائی میں رکاوٹ ہے۔', 'error');
+            }
+        });
+
+        function showTestFeedback(msg, type) {
+            testResultMsg.classList.remove('hidden', 'bg-emerald-900/60', 'text-emerald-200', 'bg-red-900/60', 'text-red-200', 'bg-amber-900/60', 'text-amber-200');
+            if (type === 'success') {
+                testResultMsg.classList.add('bg-emerald-900/80', 'text-emerald-200', 'border', 'border-emerald-500');
+            } else if (type === 'error') {
+                testResultMsg.classList.add('bg-red-900/80', 'text-red-200', 'border', 'border-red-500');
+            } else {
+                testResultMsg.classList.add('bg-amber-900/80', 'text-amber-200', 'border', 'border-amber-500');
+            }
+            testResultMsg.textContent = msg;
+        }
+
         saveSettingsBtn.addEventListener('click', () => {
             apiKey = apiKeyInput.value.trim();
             selectedModel = modelSelect.value;
@@ -696,19 +768,19 @@
 
             try {
                 let answer = "";
-                // If API key is present and looks like a valid Google AI Studio key, query Gemini API
-                if (apiKey && apiKey.startsWith("AIzaSy")) {
+                // If API key is present, attempt live Gemini API query
+                if (apiKey && apiKey.length > 15) {
                     try {
                         answer = await queryGeminiMufti(question);
                     } catch(apiErr) {
                         console.warn("Live Gemini API call failed, falling back to scholarly knowledge base:", apiErr);
                         const fallbackAnswer = generateOfflineScholarFatwa(question);
-                        answer = `> 💡 **نوٹ:** گوگل سرور پر لائیو کنکشن نہ بننے کے باعث مفتی اے۔آئی کے مستند فقہی نالج بیس سے جواب پیش کیا گیا ہے۔\n\n` + fallbackAnswer;
+                        answer = `> 💡 **نوٹ:** گوگل سرور پر رابطہ نہ ہو سکنے کے باعث مفتی اے۔آئی کے مستند نالج بیس سے جواب پیش کیا جا رہا ہے:\n\n` + fallbackAnswer;
                     }
                 } else {
                     // Instant scholarly response without key
                     const fallbackAnswer = generateOfflineScholarFatwa(question);
-                    answer = (apiKey ? `> ⚠️ **نوٹ:** داخل کردہ API Key غیر درست تھی۔ براہ کرم اوپر "ترتیبات" سے درست Google Gemini Key درج فرمائیں۔ نالج بیس سے جواب پیشِ خدمت ہے:\n\n` : `> 💡 **اطلاع:** آپ بغیر کسی API Key کے مفتی اے۔آئی کا مستند جواب دیکھ رہے ہیں۔ لائیو جیمینائی کنکشن کے لیے اوپر "ترتیبات" سے اپنی مفت Google API Key درج کر سکتے ہیں۔\n\n`) + fallbackAnswer;
+                    answer = fallbackAnswer;
                 }
 
                 // Remove loading card
