@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequently Asked Questions â€” Halal Certifications, Shipping & FAQs | My Beauty Product</title>
+  <meta name="description" content="Find answers to common questions about our 100% halal beauty products, delivery across Pakistan, return policy, and order tracking." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ðŸ’„</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="has-announcement">
+
+<!-- â•â• Announcement Bar â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="announcement-bar" role="banner">
+  âœ¨ Free delivery on orders above PKR 2,500 &nbsp;|&nbsp; <a href="shop.html">Shop Now â†’</a>
+  <button id="dismiss-bar" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:1rem;" aria-label="Dismiss announcement">âœ•</button>
+</div>
+
+<!-- â•â• Header â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="index.html" class="site-logo" aria-label="My Beauty Product Home">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="assets/images/logo.svg" alt="My Beauty Product Logo" style="height:48px; width:auto; border-radius:4px;" />
+        <div>
+          <span class="logo-main" style="display:block;">My Beauty Product</span>
+          <span class="logo-tagline" style="display:block;">Luxury Â· Halal Â· Timeless</span>
+        </div>
+      </div>
+    </a>
+
+    <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="mufti.html" class="ai-nav-link">مفتی اے۔آئی <span class="ai-nav-badge">NEW</span></a>
+      <a href="about.html">About</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="track-order.html">Track Order</a>
+    </nav>
+
+    <div class="social-icons-header" aria-label="Social media links">
+      <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    </div>
+
+    <button class="cart-btn open-cart" id="cart-trigger" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span>Bag</span>
+      <span class="cart-badge" id="cart-badge">0</span>
+    </button>
+
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="ai-assistant.html" style="color:var(--color-primary);font-weight:600;">âœ¨ AI Beauty Advisor</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <a href="track-order.html">Track Order</a>
+</nav>
+
+<!-- â•â• Page Hero â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>â€º</span><span>FAQ</span></nav>
+    <p class="subheading">Help Center</p>
+    <h1 class="heading-xl">Frequently Asked Questions</h1>
+    <p>Find answers to everything you need to know about our halal certified products, nationwide delivery, and customer care.</p>
+  </div>
+</div>
+
+<!-- â•â• FAQ Accordion Content â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="section-padding">
+  <div class="container" style="max-width:880px;">
+
+    <!-- Category 1 -->
+    <div style="margin-bottom:3rem;">
+      <h3 style="font-family:var(--font-heading);font-size:1.6rem;margin-bottom:1.2rem;color:var(--color-dark);border-bottom:1px solid var(--color-border);padding-bottom:0.5rem;">
+        ðŸŒ¿ Halal Certification &amp; Ingredients
+      </h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <details open>
+            <summary class="faq-question">Are all your products 100% Halal certified? <span class="faq-icon">+</span></summary>
+            <div class="faq-answer">Yes, absolutely. Every single product in our catalog is 100% halal-certified. We never use animal fats, carmine (crushed insects), or ethyl alcohol. Certified under strict Pakistani halal standards.</div>
+          </details>
+        </div>
+
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">Can I perform Wudu and pray Salah while wearing your makeup? <span class="faq-icon">+</span></summary>
+            <div class="faq-answer">Our mineral formulations are breathable and free of any Najis (impure) elements. While water must reach bare skin during ritual ablution (wudu), our formulas wipe off cleanly and gently with mild water or micellar wipes.</div>
+          </details>
+        </div>
+
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">Are your products cruelty-free? <span class="faq-icon">+</span></summary>
+            <div class="faq-answer">Yes, 100%. We never test our formulas or raw ingredients on animals, and we only partner with cruelty-free ethical suppliers worldwide.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 2 -->
+    <div style="margin-bottom:3rem;">
+      <h3 style="font-family:var(--font-heading);font-size:1.6rem;margin-bottom:1.2rem;color:var(--color-dark);border-bottom:1px solid var(--color-border);padding-bottom:0.5rem;">
+        ðŸšš Shipping &amp; Nationwide Delivery
+      </h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">How long does delivery take across Pakistan? <span class="faq-icon">+</span></summary>
+            <div class="faq-answer">Orders in Karachi, Lahore, Islamabad, and Rawalpindi typically arrive in 1 to 3 business days. Other cities and remote areas take 3 to 5 business days via trusted couriers (TCS / Call Courier / Leopards).</div>
+          </details>
+        </div>
+
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">What are your shipping rates? <span class="faq-icon">+</span></summary>
+            <div class="faq-answer">We offer <strong>FREE delivery nationwide</strong> on all orders above PKR 2,500! For orders under PKR 2,500, a flat shipping fee of PKR 200 applies.</div>
+          </details>
+        </div>
+
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">Do you offer Cash on Delivery (COD)? <span class="faq-icon">+</span></summary>
+            <div class="faq-answer">Yes! Cash on Delivery is available across all cities and towns in Pakistan. You only pay when your parcel is delivered to your doorstep.</div>
+          </details>
+        </div>
+
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">How can I track my order? <span class="faq-icon">+</span></summary>
+            <div class="faq-answer">You can visit our <a href="track-order.html" style="color:var(--color-primary);font-weight:600;text-decoration:underline;">Track Order Page</a> and enter your Order ID (e.g. MBP-2026-XXXX) or phone number to see real-time updates!</div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 3 -->
+    <div style="margin-bottom:3rem;">
+      <h3 style="font-family:var(--font-heading);font-size:1.6rem;margin-bottom:1.2rem;color:var(--color-dark);border-bottom:1px solid var(--color-border);padding-bottom:0.5rem;">
+        ðŸ’¬ Orders, Payments &amp; WhatsApp
+      </h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">Can I place an order directly on WhatsApp? <span class="faq-icon">+</span></summary>
+            <div class="faq-answer">Yes! Simply click our green WhatsApp button on any page or checkout screen. Our customer support will guide you through ordering, shade recommendations, and confirmation.</div>
+          </details>
+        </div>
+
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">What payment methods do you accept? <span class="faq-icon">+</span></summary>
+            <div class="faq-answer">We accept Cash on Delivery (COD), JazzCash, EasyPaisa, and Direct Bank Transfers.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 4 -->
+    <div style="margin-bottom:3rem;">
+      <h3 style="font-family:var(--font-heading);font-size:1.6rem;margin-bottom:1.2rem;color:var(--color-dark);border-bottom:1px solid var(--color-border);padding-bottom:0.5rem;">
+        ðŸ”„ Returns &amp; Exchanges
+      </h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">What is your return policy? <span class="faq-icon">+</span></summary>
+            <div class="faq-answer">We offer a 7-day hassle-free return and exchange policy for any unopened items in original packaging. If you received a damaged product, we replace it completely free of charge.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- Help Box -->
+    <div style="background:#FAF8F5;border:1px solid var(--color-primary-light);border-radius:var(--border-radius-xl);padding:30px;text-align:center;">
+      <h3 style="font-family:var(--font-heading);font-size:1.5rem;margin-bottom:8px;">Still have questions?</h3>
+      <p style="color:var(--color-muted);margin-bottom:16px;">Chat with our AI Beauty Advisor or talk with our team on WhatsApp!</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="ai-assistant.html" class="btn btn-primary">Ask AI Advisor âœ¨</a>
+        <a href="https://wa.me/923001234567" class="btn btn-outline-gold" target="_blank" rel="noopener">WhatsApp Support</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- â•â• Footer â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="site-logo">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <img src="assets/images/logo.svg" alt="Logo" style="height:48px; width:auto; border-radius:4px;" />
+            <div>
+              <span class="logo-main" style="display:block;">My Beauty Product</span>
+              <span class="logo-tagline" style="display:block;">Luxury Â· Halal Â· Timeless</span>
+            </div>
+          </div>
+        </a>
+        <p class="footer-about">Pakistan's premier luxury beauty brand, crafting premium, halal-certified cosmetics.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop All</a></li>
+          <li><a href="ai-assistant.html">AI Beauty Advisor âœ¨</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="track-order.html">Track Order</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Policies</h4>
+        <ul class="footer-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="terms.html#returns">Returns &amp; Refunds</a></li>
+          <li><a href="terms.html#shipping">Shipping Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Contact Us</h4>
+        <div class="footer-contact-item"><span>hello@mybeautyproduct.pk</span></div>
+        <div class="footer-contact-item"><span>+92 300 123 4567</span></div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">Â© 2026 My Beauty Product. All rights reserved.</p>
+      <div class="footer-payment-icons">
+        <span class="payment-badge">JazzCash</span>
+        <span class="payment-badge">EasyPaisa</span>
+        <span class="payment-badge">Bank Transfer</span>
+        <span class="payment-badge">COD</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- â•â• Cart Drawer & Overlay â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping cart" aria-modal="true">
+  <div class="cart-drawer-header">
+    <h2 class="cart-drawer-title">Your Bag</h2>
+    <button class="cart-close-btn" id="cart-close" aria-label="Close cart">âœ•</button>
+  </div>
+  <div class="cart-items" id="cart-items" aria-live="polite"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span class="cart-subtotal-value" id="cart-total">PKR 0</span>
+    </div>
+    <button class="cart-checkout-btn" id="cart-checkout">Proceed to Checkout</button>
+    <button class="cart-continue-btn" onclick="closeCartDrawer()">â† Continue Shopping</button>
+  </div>
+</aside>
+
+<a class="whatsapp-float" href="https://wa.me/923001234567" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>Order on WhatsApp</span>
+</a>
+
+<a class="ai-float" href="mufti.html" id="ai-float-btn" aria-label="Ask Mufti AI">
+  <span class="ai-float-icon">âœ¨</span>
+  <span>مفتی اے۔آئی (Mufti AI)</span>
+</a>
+
+<script src="main.js"></script>
+<script src="cart.js"></script>
+</body>
+</html>

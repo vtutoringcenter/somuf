@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track Your Order â€” Real-time Parcel Tracking | My Beauty Product</title>
+  <meta name="description" content="Track your luxury cosmetics order status across Pakistan. Live shipping updates, courier partner tracking, and delivery timelines." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ðŸ“¦</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="has-announcement">
+
+<!-- â•â• Announcement Bar â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="announcement-bar" role="banner">
+  âœ¨ Free delivery on orders above PKR 2,500 &nbsp;|&nbsp; <a href="shop.html">Shop Now â†’</a>
+  <button id="dismiss-bar" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:1rem;" aria-label="Dismiss announcement">âœ•</button>
+</div>
+
+<!-- â•â• Header â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="index.html" class="site-logo" aria-label="My Beauty Product Home">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="assets/images/logo.svg" alt="My Beauty Product Logo" style="height:48px; width:auto; border-radius:4px;" />
+        <div>
+          <span class="logo-main" style="display:block;">My Beauty Product</span>
+          <span class="logo-tagline" style="display:block;">Luxury Â· Halal Â· Timeless</span>
+        </div>
+      </div>
+    </a>
+
+    <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="mufti.html" class="ai-nav-link">مفتی اے۔آئی <span class="ai-nav-badge">NEW</span></a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="track-order.html" class="active">Track Order</a>
+    </nav>
+
+    <div class="social-icons-header" aria-label="Social media links">
+      <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    </div>
+
+    <button class="cart-btn open-cart" id="cart-trigger" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span>Bag</span>
+      <span class="cart-badge" id="cart-badge">0</span>
+    </button>
+
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="ai-assistant.html" style="color:var(--color-primary);font-weight:600;">âœ¨ AI Beauty Advisor</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <a href="track-order.html">Track Order</a>
+</nav>
+
+<!-- â•â• Page Hero â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>â€º</span><span>Track Order</span></nav>
+    <p class="subheading">Real-Time Delivery Updates</p>
+    <h1 class="heading-xl">Track Your Order</h1>
+    <p>Enter your Order ID (e.g., MBP-2026-1042) or WhatsApp phone number to check your shipment status.</p>
+  </div>
+</div>
+
+<!-- â•â• Order Tracking Section â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="section-padding">
+  <div class="container">
+
+    <!-- Tracking Search Box -->
+    <div class="tracking-card">
+      <form id="track-form">
+        <label class="form-label" style="font-weight:600;font-size:0.95rem;margin-bottom:8px;display:block;">Order Tracking ID or Phone Number</label>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <input type="text" id="track-input" class="form-input" style="flex:1;min-width:220px;padding:12px 16px;border:1px solid var(--color-border);border-radius:6px;font-size:0.95rem;" placeholder="e.g. MBP-2026-4891 or 03001234567" required />
+          <button type="submit" class="btn btn-primary" style="padding:12px 24px;">Track Now</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Tracking Results Display Area -->
+    <div id="tracking-result-box" style="display:none;max-width:780px;margin:0 auto;background:white;border-radius:var(--border-radius-xl);border:1px solid var(--color-border);box-shadow:var(--shadow-md);padding:var(--space-2xl);">
+      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--color-border);padding-bottom:16px;margin-bottom:24px;flex-wrap:wrap;gap:10px;">
+        <div>
+          <span style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-muted);">Order Tracking ID</span>
+          <h3 id="res-order-id" style="font-family:var(--font-heading);font-size:1.6rem;color:var(--color-primary-dark);margin-top:2px;">MBP-2026-8492</h3>
+        </div>
+        <div style="text-align:right;">
+          <span style="font-size:0.8rem;color:var(--color-muted);">Status:</span>
+          <div id="res-status" style="font-weight:700;color:var(--color-success);font-size:1.05rem;">In Transit via TCS Express</div>
+        </div>
+      </div>
+
+      <!-- Tracking Stepper -->
+      <div class="tracking-stepper">
+        <div class="progress-line" id="stepper-progress" style="width: 66%;"></div>
+        
+        <div class="step-item completed" id="step-1">
+          <div class="step-circle completed">âœ“</div>
+          <div class="step-label">Order Placed</div>
+          <div class="step-date" id="date-step-1">Yesterday</div>
+        </div>
+
+        <div class="step-item completed" id="step-2">
+          <div class="step-circle completed">âœ“</div>
+          <div class="step-label">Packed &amp; Verified</div>
+          <div class="step-date" id="date-step-2">Today, 10:00 AM</div>
+        </div>
+
+        <div class="step-item active" id="step-3">
+          <div class="step-circle active">ðŸšš</div>
+          <div class="step-label">Dispatched</div>
+          <div class="step-date" id="date-step-3">On Route</div>
+        </div>
+
+        <div class="step-item" id="step-4">
+          <div class="step-circle">ðŸ“¦</div>
+          <div class="step-label">Delivered</div>
+          <div class="step-date">Estimated: 1-2 Days</div>
+        </div>
+      </div>
+
+      <!-- Order Details Summary Box -->
+      <div id="order-meta-info" style="margin-top:40px;background:#FAF8F5;border-radius:12px;padding:20px;border:1px solid var(--color-border);font-size:0.9rem;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;">
+          <div>
+            <span style="color:var(--color-muted);font-size:0.8rem;display:block;">Recipient:</span>
+            <strong id="meta-name">Ayesha Khan</strong>
+          </div>
+          <div>
+            <span style="color:var(--color-muted);font-size:0.8rem;display:block;">Destination:</span>
+            <strong id="meta-destination">Karachi, Pakistan</strong>
+          </div>
+          <div>
+            <span style="color:var(--color-muted);font-size:0.8rem;display:block;">Payment Method:</span>
+            <strong id="meta-payment">Cash on Delivery (COD)</strong>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;text-align:center;">
+        <a href="https://wa.me/923001234567" class="btn btn-outline-gold btn-sm" target="_blank" rel="noopener">
+          Need Help with this Delivery? Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- â•â• Footer â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="site-logo">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <img src="assets/images/logo.svg" alt="Logo" style="height:48px; width:auto; border-radius:4px;" />
+            <div>
+              <span class="logo-main" style="display:block;">My Beauty Product</span>
+              <span class="logo-tagline" style="display:block;">Luxury Â· Halal Â· Timeless</span>
+            </div>
+          </div>
+        </a>
+        <p class="footer-about">Pakistan's premier luxury beauty brand, crafting premium, halal-certified cosmetics.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop All</a></li>
+          <li><a href="ai-assistant.html">AI Beauty Advisor âœ¨</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="track-order.html">Track Order</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Policies</h4>
+        <ul class="footer-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="terms.html#returns">Returns &amp; Refunds</a></li>
+          <li><a href="terms.html#shipping">Shipping Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Contact Us</h4>
+        <div class="footer-contact-item"><span>hello@mybeautyproduct.pk</span></div>
+        <div class="footer-contact-item"><span>+92 300 123 4567</span></div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">Â© 2026 My Beauty Product. All rights reserved.</p>
+      <div class="footer-payment-icons">
+        <span class="payment-badge">JazzCash</span>
+        <span class="payment-badge">EasyPaisa</span>
+        <span class="payment-badge">Bank Transfer</span>
+        <span class="payment-badge">COD</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- â•â• Cart Drawer & Overlay â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping cart" aria-modal="true">
+  <div class="cart-drawer-header">
+    <h2 class="cart-drawer-title">Your Bag</h2>
+    <button class="cart-close-btn" id="cart-close" aria-label="Close cart">âœ•</button>
+  </div>
+  <div class="cart-items" id="cart-items" aria-live="polite"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span class="cart-subtotal-value" id="cart-total">PKR 0</span>
+    </div>
+    <button class="cart-checkout-btn" id="cart-checkout">Proceed to Checkout</button>
+    <button class="cart-continue-btn" onclick="closeCartDrawer()">â† Continue Shopping</button>
+  </div>
+</aside>
+
+<a class="whatsapp-float" href="https://wa.me/923001234567" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>Order on WhatsApp</span>
+</a>
+
+<a class="ai-float" href="mufti.html" id="ai-float-btn" aria-label="Ask Mufti AI">
+  <span class="ai-float-icon">âœ¨</span>
+  <span>مفتی اے۔آئی (Mufti AI)</span>
+</a>
+
+<script src="main.js"></script>
+<script src="cart.js"></script>
+<script>
+  // Order Tracking Logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('track-form');
+    const input = document.getElementById('track-input');
+    const resultBox = document.getElementById('tracking-result-box');
+    const orderIdDisplay = document.getElementById('res-order-id');
+    const statusDisplay = document.getElementById('res-status');
+    const metaName = document.getElementById('meta-name');
+    const metaDest = document.getElementById('meta-destination');
+    const metaPayment = document.getElementById('meta-payment');
+
+    function displayTracking(query) {
+      if (!query) return;
+      query = query.trim();
+
+      // Check localStorage for placed orders
+      let foundOrder = null;
+      try {
+        const orders = JSON.parse(localStorage.getItem('mbp_orders') || '[]');
+        foundOrder = orders.find(o => 
+          (o.id && o.id.toLowerCase() === query.toLowerCase()) || 
+          (o.phone && o.phone.replace(/\D/g, '') === query.replace(/\D/g, ''))
+        );
+      } catch (err) {}
+
+      resultBox.style.display = 'block';
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      if (foundOrder) {
+        orderIdDisplay.textContent = foundOrder.id;
+        statusDisplay.textContent = foundOrder.status || 'In Transit via TCS Express';
+        metaName.textContent = foundOrder.name || 'Valued Customer';
+        metaDest.textContent = (foundOrder.address ? foundOrder.address + ', ' : '') + (foundOrder.city || 'Pakistan');
+        metaPayment.textContent = `${foundOrder.payment} (Total: PKR ${foundOrder.total.toLocaleString()})`;
+      } else {
+        // Mock fallback for direct queries
+        const cleanId = query.startsWith('MBP-') ? query : 'MBP-2026-' + (query.slice(-4) || '3821');
+        orderIdDisplay.textContent = cleanId;
+        statusDisplay.textContent = 'Dispatched via TCS Express';
+        metaName.textContent = 'Valued Customer';
+        metaDest.textContent = 'Karachi, Pakistan';
+        metaPayment.textContent = 'Cash on Delivery (COD)';
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      displayTracking(input.value);
+    });
+
+    // Check URL params
+    const urlParams = new URLSearchParams(window.location.search);
+    const idParam = urlParams.get('id') || urlParams.get('order');
+    if (idParam) {
+      input.value = idParam;
+      displayTracking(idParam);
+    }
+  });
+</script>
+</body>
+</html>

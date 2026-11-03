@@ -1,0 +1,552 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop Luxury Halal Cosmetics â€” My Beauty Product</title>
+  <meta name="description" content="Explore our full collection of halal-certified luxury lipsticks, foundations, serums, highlighters, and eye palettes in Pakistan. Free shipping on orders over PKR 2,500." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ðŸ’„</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="has-announcement">
+
+<!-- â•â• Announcement Bar â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="announcement-bar" role="banner">
+  âœ¨ Free delivery on orders above PKR 2,500 &nbsp;|&nbsp; <a href="shop.html">Shop Now â†’</a>
+  <button id="dismiss-bar" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:1rem;" aria-label="Dismiss announcement">âœ•</button>
+</div>
+
+<!-- â•â• Header â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="index.html" class="site-logo" aria-label="My Beauty Product Home">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="assets/images/logo.svg" alt="My Beauty Product Logo" style="height:48px; width:auto; border-radius:4px;" />
+        <div>
+          <span class="logo-main" style="display:block;">My Beauty Product</span>
+          <span class="logo-tagline" style="display:block;">Luxury Â· Halal Â· Timeless</span>
+        </div>
+      </div>
+    </a>
+
+    <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="mufti.html" class="ai-nav-link">مفتی اے۔آئی <span class="ai-nav-badge">NEW</span></a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="track-order.html">Track Order</a>
+    </nav>
+
+    <div class="social-icons-header" aria-label="Social media links">
+      <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg></a>
+    </div>
+
+    <button class="cart-btn open-cart" id="cart-trigger" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span>Bag</span>
+      <span class="cart-badge" id="cart-badge">0</span>
+    </button>
+
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="ai-assistant.html" style="color:var(--color-primary);font-weight:600;">âœ¨ AI Beauty Advisor</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <a href="track-order.html">Track Order</a>
+</nav>
+
+<!-- â•â• Page Hero â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>â€º</span><span>Shop</span></nav>
+    <p class="subheading">Collections</p>
+    <h1 class="heading-xl">Explore Our Full Range</h1>
+    <p>Premium halal beauty products crafted for every skin tone and type. All prices in PKR.</p>
+  </div>
+</div>
+
+<!-- â•â• Shop Layout â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="section-padding">
+  <div class="container">
+
+    <!-- Mobile Filter Toggle Bar -->
+    <div class="filter-toggle-bar">
+      <button class="btn btn-outline-gold btn-sm" id="filter-toggle" aria-label="Open filters">âš™ Filters</button>
+      <select class="sort-select" id="sort-select" aria-label="Sort products">
+        <option value="featured">Featured</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="highest-rated">Highest Rated</option>
+      </select>
+    </div>
+
+    <div class="shop-layout">
+
+      <!-- Filter Sidebar -->
+      <aside class="filter-sidebar" aria-label="Product filters">
+        <h2 style="font-family:var(--font-heading);font-size:1.2rem;margin-bottom:1.5rem;">Filter Products</h2>
+
+        <!-- Search Filter -->
+        <div class="filter-group">
+          <p class="filter-group-title">Search</p>
+          <input type="text" id="shop-search" placeholder="Search lipstick, serum..." style="width:100%;padding:8px 12px;border:1px solid var(--color-border);border-radius:4px;font-size:0.85rem;" />
+        </div>
+
+        <div class="filter-group">
+          <p class="filter-group-title">Category</p>
+          <label class="filter-option"><input type="checkbox" name="category" value="all" checked id="filter-all" /> All Categories</label>
+          <label class="filter-option"><input type="checkbox" name="category" value="Lips" id="filter-lips" /> Lips</label>
+          <label class="filter-option"><input type="checkbox" name="category" value="Face" id="filter-face" /> Face</label>
+          <label class="filter-option"><input type="checkbox" name="category" value="Eyes" id="filter-eyes" /> Eyes</label>
+          <label class="filter-option"><input type="checkbox" name="category" value="Skincare" id="filter-skincare" /> Skincare</label>
+        </div>
+
+        <div class="filter-group">
+          <p class="filter-group-title">Price Range</p>
+          <input type="range" id="price-range" class="price-range-input" min="500" max="6000" value="6000" step="100" aria-label="Maximum price" />
+          <div class="price-range-values">
+            <span>PKR 500</span>
+            <span id="price-max-display">PKR 6,000</span>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <p class="filter-group-title">Certifications</p>
+          <label class="filter-option"><input type="checkbox" id="filter-halal" checked /> Halal Certified (100%)</label>
+          <label class="filter-option"><input type="checkbox" id="filter-cruelty-free" checked /> Cruelty-Free</label>
+        </div>
+
+        <button class="btn btn-outline-gold" style="width:100%;margin-top:0.5rem;" id="clear-filters-btn">Reset Filters</button>
+
+        <!-- AI Advisor Teaser Box -->
+        <div style="margin-top:2rem;background:#FAF8F5;border:1px dashed var(--color-primary);border-radius:var(--border-radius-lg);padding:16px;text-align:center;">
+          <div style="font-size:1.4rem;margin-bottom:6px;">âœ¨</div>
+          <h4 style="font-family:var(--font-heading);font-size:1rem;margin-bottom:4px;">Not sure what suits you?</h4>
+          <p style="font-size:0.78rem;color:var(--color-muted);margin-bottom:10px;">Let our AI Beauty Consultant recommend your custom routine!</p>
+          <a href="mufti.html" class="btn btn-primary btn-sm" style="width:100%;">مفتی اے۔آئی سے دریافت کریں</a>
+        </div>
+      </aside>
+
+      <!-- Products Area -->
+      <div>
+        <div class="shop-topbar">
+          <p class="results-count" id="product-count">Showing all products</p>
+          <select class="sort-select" id="sort-select-desktop" aria-label="Sort products">
+            <option value="featured">Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="highest-rated">Highest Rated</option>
+          </select>
+        </div>
+
+        <div class="products-grid" id="product-grid">
+
+          <!-- Product 1 -->
+          <div class="product-card" data-product="prod-001" data-product-id="prod-001" data-name="Velvet Rose Lipstick" data-price="1850" data-category="Lips" data-rating="5" data-image="assets/images/product_lipstick.jpg">
+            <div class="product-card-img">
+              <span class="product-badge badge-new">Bestseller</span>
+              <img src="assets/images/product_lipstick.jpg" alt="Velvet Rose Lipstick" loading="lazy" />
+              <div class="product-card-actions">
+                <button class="quick-add-btn" data-add-to-cart>Add to Bag</button>
+                <button class="wishlist-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Lips</p>
+              <h3 class="product-name">Velvet Rose Lipstick</h3>
+              <div class="star-rating">
+                <div class="stars"><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span></div>
+                <span class="rating-count">(284)</span>
+              </div>
+              <div class="product-meta">
+                <span class="product-price">PKR 1,850</span>
+                <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="product-card" data-product="prod-002" data-product-id="prod-002" data-name="Luminous Glow Foundation" data-price="2990" data-category="Face" data-rating="4" data-image="assets/images/product_foundation.jpg">
+            <div class="product-card-img">
+              <img src="assets/images/product_foundation.jpg" alt="Luminous Glow Foundation" loading="lazy" />
+              <div class="product-card-actions">
+                <button class="quick-add-btn" data-add-to-cart>Add to Bag</button>
+                <button class="wishlist-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Face</p>
+              <h3 class="product-name">Luminous Glow Foundation</h3>
+              <div class="star-rating">
+                <div class="stars"><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star">â˜…</span></div>
+                <span class="rating-count">(196)</span>
+              </div>
+              <div class="product-meta">
+                <span class="product-price">PKR 2,990</span>
+                <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="product-card" data-product="prod-003" data-product-id="prod-003" data-name="Radiance Face Serum" data-price="3450" data-category="Skincare" data-rating="5" data-image="assets/images/product_serum.jpg">
+            <div class="product-card-img">
+              <span class="product-badge badge-new">New</span>
+              <img src="assets/images/product_serum.jpg" alt="Radiance Face Serum" loading="lazy" />
+              <div class="product-card-actions">
+                <button class="quick-add-btn" data-add-to-cart>Add to Bag</button>
+                <button class="wishlist-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Skincare</p>
+              <h3 class="product-name">Radiance Face Serum</h3>
+              <div class="star-rating">
+                <div class="stars"><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span></div>
+                <span class="rating-count">(421)</span>
+              </div>
+              <div class="product-meta">
+                <span class="product-price">PKR 3,450</span>
+                <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="product-card" data-product="prod-004" data-product-id="prod-004" data-name="Smoky Eyes Palette" data-price="2200" data-category="Eyes" data-rating="4" data-image="assets/images/product_eyeshadow.jpg">
+            <div class="product-card-img">
+              <span class="product-badge badge-sale">Sale</span>
+              <img src="assets/images/product_eyeshadow.jpg" alt="Smoky Eyes Palette" loading="lazy" />
+              <div class="product-card-actions">
+                <button class="quick-add-btn" data-add-to-cart>Add to Bag</button>
+                <button class="wishlist-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Eyes</p>
+              <h3 class="product-name">Smoky Eyes Palette</h3>
+              <div class="star-rating">
+                <div class="stars"><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star">â˜…</span></div>
+                <span class="rating-count">(158)</span>
+              </div>
+              <div class="product-meta">
+                <span class="product-price">PKR 2,200</span>
+                <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="product-card" data-product="prod-005" data-product-id="prod-005" data-name="Blush & Contour Kit" data-price="1750" data-category="Face" data-rating="5" data-image="assets/images/product_blush.jpg">
+            <div class="product-card-img">
+              <img src="assets/images/product_blush.jpg" alt="Blush & Contour Kit" loading="lazy" />
+              <div class="product-card-actions">
+                <button class="quick-add-btn" data-add-to-cart>Add to Bag</button>
+                <button class="wishlist-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Face</p>
+              <h3 class="product-name">Blush & Contour Kit</h3>
+              <div class="star-rating">
+                <div class="stars"><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span></div>
+                <span class="rating-count">(312)</span>
+              </div>
+              <div class="product-meta">
+                <span class="product-price">PKR 1,750</span>
+                <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 6 -->
+          <div class="product-card" data-product="prod-006" data-product-id="prod-006" data-name="Diamond Highlighter" data-price="1950" data-category="Face" data-rating="5" data-image="assets/images/product_highlighter.jpg">
+            <div class="product-card-img">
+              <span class="product-badge badge-new">Fan Fave</span>
+              <img src="assets/images/product_highlighter.jpg" alt="Diamond Highlighter" loading="lazy" />
+              <div class="product-card-actions">
+                <button class="quick-add-btn" data-add-to-cart>Add to Bag</button>
+                <button class="wishlist-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Face</p>
+              <h3 class="product-name">Diamond Highlighter</h3>
+              <div class="star-rating">
+                <div class="stars"><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span></div>
+                <span class="rating-count">(239)</span>
+              </div>
+              <div class="product-meta">
+                <span class="product-price">PKR 1,950</span>
+                <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 7 -->
+          <div class="product-card" data-product="prod-007" data-product-id="prod-007" data-name="Silk Hydrating Primer" data-price="2150" data-category="Face" data-rating="5" data-image="assets/images/product_primer.jpg">
+            <div class="product-card-img">
+              <span class="product-badge badge-new">New</span>
+              <img src="assets/images/product_primer.jpg" alt="Silk Hydrating Primer" loading="lazy" />
+              <div class="product-card-actions">
+                <button class="quick-add-btn" data-add-to-cart>Add to Bag</button>
+                <button class="wishlist-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Face</p>
+              <h3 class="product-name">Silk Hydrating Primer</h3>
+              <div class="star-rating">
+                <div class="stars"><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span></div>
+                <span class="rating-count">(174)</span>
+              </div>
+              <div class="product-meta">
+                <span class="product-price">PKR 2,150</span>
+                <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 8 -->
+          <div class="product-card" data-product="prod-008" data-product-id="prod-008" data-name="Royal Oud Lip Glaze" data-price="1650" data-category="Lips" data-rating="5" data-image="assets/images/product_lipstick.jpg">
+            <div class="product-card-img">
+              <span class="product-badge badge-new">Trending</span>
+              <img src="assets/images/product_lipstick.jpg" alt="Royal Oud Lip Glaze" loading="lazy" />
+              <div class="product-card-actions">
+                <button class="quick-add-btn" data-add-to-cart>Add to Bag</button>
+                <button class="wishlist-btn" aria-label="Wishlist"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Lips</p>
+              <h3 class="product-name">Royal Oud Lip Glaze</h3>
+              <div class="star-rating">
+                <div class="stars"><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span></div>
+                <span class="rating-count">(98)</span>
+              </div>
+              <div class="product-meta">
+                <span class="product-price">PKR 1,650</span>
+                <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /products-grid -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• Newsletter â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="newsletter-section section-padding-sm">
+  <div class="container">
+    <h2 class="heading-lg" style="color:white;">New Arrivals in Your Inbox</h2>
+    <p>Subscribe and get 10% off your first order.</p>
+    <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed! 10% coupon sent.', 'success'); this.reset();" style="margin-top:1.5rem;">
+      <input type="email" placeholder="Your email address" required aria-label="Email for newsletter" />
+      <button type="submit">Get 10% Off</button>
+    </form>
+  </div>
+</section>
+
+<!-- â•â• Footer â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="site-logo">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <img src="assets/images/logo.svg" alt="Logo" style="height:48px; width:auto; border-radius:4px;" />
+            <div>
+              <span class="logo-main" style="display:block;">My Beauty Product</span>
+              <span class="logo-tagline" style="display:block;">Luxury Â· Halal Â· Timeless</span>
+            </div>
+          </div>
+        </a>
+        <p class="footer-about">Pakistan's premier luxury beauty brand, crafting premium, halal-certified cosmetics.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop All</a></li>
+          <li><a href="ai-assistant.html">AI Beauty Advisor âœ¨</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="track-order.html">Track Order</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Policies</h4>
+        <ul class="footer-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="terms.html#returns">Returns &amp; Refunds</a></li>
+          <li><a href="terms.html#shipping">Shipping Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Contact Us</h4>
+        <div class="footer-contact-item">
+          <span>hello@mybeautyproduct.pk</span>
+        </div>
+        <div class="footer-contact-item">
+          <span>+92 300 123 4567</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">Â© 2026 My Beauty Product. All rights reserved.</p>
+      <div class="footer-payment-icons">
+        <span class="payment-badge">JazzCash</span>
+        <span class="payment-badge">EasyPaisa</span>
+        <span class="payment-badge">Bank Transfer</span>
+        <span class="payment-badge">COD</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- â•â• Cart Overlay & Drawer â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping cart" aria-modal="true">
+  <div class="cart-drawer-header">
+    <h2 class="cart-drawer-title">Your Bag</h2>
+    <button class="cart-close-btn" id="cart-close" aria-label="Close cart">âœ•</button>
+  </div>
+  <div class="cart-items" id="cart-items" aria-live="polite"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span class="cart-subtotal-value" id="cart-total">PKR 0</span>
+    </div>
+    <button class="cart-checkout-btn" id="cart-checkout">Proceed to Checkout</button>
+    <button class="cart-continue-btn" onclick="closeCartDrawer()">â† Continue Shopping</button>
+  </div>
+</aside>
+
+<a class="whatsapp-float" href="https://wa.me/923001234567" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>Order on WhatsApp</span>
+</a>
+
+<a class="ai-float" href="mufti.html" id="ai-float-btn" aria-label="Ask Mufti AI">
+  <span class="ai-float-icon">âœ¨</span>
+  <span>مفتی اے۔آئی (Mufti AI)</span>
+</a>
+
+<!-- Scripts -->
+<script src="main.js"></script>
+<script src="cart.js"></script>
+<script>
+  // Live Shop Filter & Sort Script
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = Array.from(document.querySelectorAll('.product-card'));
+    const categoryInputs = document.querySelectorAll('input[name="category"]');
+    const priceRange = document.getElementById('price-range');
+    const priceDisplay = document.getElementById('price-max-display');
+    const searchInput = document.getElementById('shop-search');
+    const sortDesktop = document.getElementById('sort-select-desktop');
+    const sortMobile = document.getElementById('sort-select');
+    const countDisplay = document.getElementById('product-count');
+    const grid = document.getElementById('product-grid');
+
+    function filterAndSort() {
+      const selectedCats = Array.from(categoryInputs).filter(i => i.checked && i.value !== 'all').map(i => i.value);
+      const isAll = document.getElementById('filter-all')?.checked || selectedCats.length === 0;
+      const maxPrice = parseInt(priceRange?.value || '6000', 10);
+      const query = (searchInput?.value || '').toLowerCase().trim();
+      const sortVal = sortDesktop?.value || sortMobile?.value || 'featured';
+
+      let visible = cards.filter(card => {
+        const cat = card.dataset.category;
+        const price = parseInt(card.dataset.price, 10);
+        const name = card.dataset.name.toLowerCase();
+
+        const matchCat = isAll || selectedCats.includes(cat);
+        const matchPrice = price <= maxPrice;
+        const matchSearch = !query || name.includes(query) || cat.toLowerCase().includes(query);
+
+        const show = matchCat && matchPrice && matchSearch;
+        card.style.display = show ? '' : 'none';
+        return show;
+      });
+
+      // Sorting
+      if (sortVal === 'price-low') {
+        visible.sort((a, b) => parseInt(a.dataset.price) - parseInt(b.dataset.price));
+      } else if (sortVal === 'price-high') {
+        visible.sort((a, b) => parseInt(b.dataset.price) - parseInt(a.dataset.price));
+      } else if (sortVal === 'highest-rated') {
+        visible.sort((a, b) => parseInt(b.dataset.rating || '5') - parseInt(a.dataset.rating || '5'));
+      }
+
+      visible.forEach(c => grid.appendChild(c));
+      if (countDisplay) {
+        countDisplay.textContent = `Showing ${visible.length} products`;
+      }
+    }
+
+    categoryInputs.forEach(i => {
+      i.addEventListener('change', (e) => {
+        if (e.target.value === 'all' && e.target.checked) {
+          categoryInputs.forEach(x => { if (x.value !== 'all') x.checked = false; });
+        } else if (e.target.value !== 'all' && e.target.checked) {
+          const allBox = document.getElementById('filter-all');
+          if (allBox) allBox.checked = false;
+        }
+        filterAndSort();
+      });
+    });
+
+    priceRange?.addEventListener('input', () => {
+      priceDisplay.textContent = 'PKR ' + parseInt(priceRange.value).toLocaleString();
+      filterAndSort();
+    });
+
+    searchInput?.addEventListener('input', filterAndSort);
+
+    const onSort = (val) => {
+      if (sortDesktop) sortDesktop.value = val;
+      if (sortMobile) sortMobile.value = val;
+      filterAndSort();
+    };
+
+    sortDesktop?.addEventListener('change', (e) => onSort(e.target.value));
+    sortMobile?.addEventListener('change', (e) => onSort(e.target.value));
+
+    document.getElementById('clear-filters-btn')?.addEventListener('click', () => {
+      categoryInputs.forEach(x => x.checked = (x.value === 'all'));
+      if (priceRange) { priceRange.value = 6000; priceDisplay.textContent = 'PKR 6,000'; }
+      if (searchInput) searchInput.value = '';
+      if (sortDesktop) sortDesktop.value = 'featured';
+      if (sortMobile) sortMobile.value = 'featured';
+      filterAndSort();
+    });
+
+    filterAndSort();
+  });
+</script>
+</body>
+</html>

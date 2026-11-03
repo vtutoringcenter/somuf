@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفتی صاحب | Online Mufti AI</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Noto Nastaliq Urdu, Amiri, Lateef -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lateef:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Marked.js for markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            850: '#064e3b',
+                            950: '#022c22',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        urdu: ['"Noto Nastaliq Urdu"', 'serif'],
+                        arabic: ['Amiri', 'serif'],
+                        lateef: ['Lateef', 'cursive', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Noto Nastaliq Urdu', 'Amiri', serif;
+            background-color: #0b1a13;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(245, 158, 11, 0.06) 0%, transparent 45%);
+            min-height: 100vh;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            font-size: 1.25rem;
+            line-height: 2.2rem;
+            direction: rtl;
+        }
+
+        .urdu-text {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            line-height: 2.4rem;
+        }
+
+        /* Markdown formatting inside answers */
+        .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 {
+            color: #f59e0b;
+            font-weight: 700;
+            margin-top: 1.4rem;
+            margin-bottom: 0.7rem;
+            border-bottom: 1px dashed rgba(245, 158, 11, 0.25);
+            padding-bottom: 0.4rem;
+        }
+        .markdown-body h1 { font-size: 1.55rem; }
+        .markdown-body h2 { font-size: 1.35rem; }
+        .markdown-body h3 { font-size: 1.2rem; }
+
+        .markdown-body p {
+            margin-bottom: 1rem;
+            line-height: 2.3rem;
+            text-align: justify;
+        }
+
+        .markdown-body blockquote {
+            border-right: 4px solid #f59e0b;
+            border-left: none;
+            padding: 0.75rem 1.25rem;
+            margin: 1.2rem 0;
+            background: rgba(16, 185, 129, 0.08);
+            border-radius: 0 10px 10px 0;
+            font-style: normal;
+        }
+
+        .markdown-body ul, .markdown-body ol {
+            padding-right: 1.8rem;
+            margin-bottom: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .markdown-body li {
+            margin-bottom: 0.5rem;
+            line-height: 2.2rem;
+        }
+
+        .markdown-body hr {
+            border-color: rgba(245, 158, 11, 0.2);
+            margin: 1.5rem 0;
+        }
+
+        .markdown-body table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+        .markdown-body th, .markdown-body td {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.6rem 0.8rem;
+            text-align: right;
+        }
+        .markdown-body th {
+            background: rgba(16, 185, 129, 0.2);
+            color: #fbbf24;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #062319;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #059669;
+        }
+
+        /* Islamic Arch decorative frame */
+        .islamic-card {
+            position: relative;
+            background: linear-gradient(145deg, rgba(10, 36, 26, 0.95), rgba(7, 28, 20, 0.95));
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(16, 185, 129, 0.1);
+        }
+
+        .islamic-badge {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(16, 185, 129, 0.2));
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        /* Print styling for Fatwa PDF/Print */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+            .islamic-card {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+                background: white !important;
+                color: black !important;
+            }
+            .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+                color: #064e3b !important;
+            }
+        }
+    </style>
+</head>
+<body class="text-emerald-50 antialiased flex flex-col justify-between">
+
+    <!-- Store Navigation Bar (Connects Mufti AI with My Beauty Product Website) -->
+    <nav class="bg-black/60 border-b border-emerald-900/60 text-xs px-4 py-2.5 font-urdu no-print sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-5xl mx-auto flex items-center justify-between flex-wrap gap-2">
+            <a href="index.html" class="text-amber-400 hover:text-amber-300 flex items-center gap-2 font-bold transition">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>واپس مین اسٹور (My Beauty Product)</span>
+            </a>
+            <div class="flex items-center gap-4 text-emerald-200 text-xs">
+                <a href="index.html" class="hover:text-amber-300 transition">ہوم (Home)</a>
+                <a href="shop.html" class="hover:text-amber-300 transition">شاپ (Shop)</a>
+                <a href="mufti.html" class="text-amber-400 font-bold border-b border-amber-400 pb-0.5">مفتی اے۔آئی (Mufti AI)</a>
+                <a href="about.html" class="hover:text-amber-300 transition">ہمارے بارے میں (About)</a>
+                <a href="faq.html" class="hover:text-amber-300 transition">ایف اے کیو (FAQ)</a>
+                <a href="contact.html" class="hover:text-amber-300 transition">رابطہ (Contact)</a>
+                <a href="track-order.html" class="hover:text-amber-300 transition">آرڈر ٹریکنگ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top Navigation Bar -->
+    <header class="border-b border-emerald-800/50 bg-emerald-950/80 backdrop-blur-md sticky top-0 z-40 no-print">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-500 to-emerald-600 flex items-center justify-center text-white shadow-lg shadow-emerald-900/50">
+                    <i class="fa-solid fa-kaaba text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold tracking-wide text-amber-400 font-urdu">مفتی صاحب</h1>
+                    <p class="text-xs text-emerald-300 font-arabic">مفتی و فقہی معاونِ خصوصی مع قرآن، سنت و ائمہ اربعہ</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-2 space-x-reverse">
+                <!-- Clear Chat Button -->
+                <button id="clearChatBtn" title="سخن آغاز" class="p-2.5 rounded-lg text-emerald-300 hover:text-white hover:bg-emerald-800/60 transition text-sm flex items-center gap-1.5 border border-emerald-700/40">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <span class="hidden md:inline font-urdu text-xs">نئی نشست</span>
+                </button>
+                <!-- Settings Button -->
+                <button id="settingsBtn" title="ترتیبات و اے۔پی۔آئی کی" class="p-2.5 rounded-lg text-amber-300 hover:text-amber-100 hover:bg-emerald-800/60 transition text-sm flex items-center gap-1.5 border border-amber-500/30">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span class="hidden md:inline font-urdu text-xs">ترتیبات</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-6 flex flex-col gap-6">
+
+        <!-- Islamic Banner / Welcome Header -->
+        <div class="text-center py-4 bg-emerald-900/20 rounded-2xl border border-emerald-700/30 p-6 shadow-inner relative overflow-hidden">
+            <div class="text-amber-400/90 text-2xl md:text-3xl font-arabic tracking-wide mb-2 select-none">
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            </div>
+            <p class="text-emerald-200 text-sm md:text-base font-urdu max-w-2xl mx-auto leading-relaxed">
+                شرعی و فقہی سوالات کے مدلل اور تسلی بخش جوابات، قرآن پاک کے نصوص، احادیثِ رسول ﷺ اور ائمہ اربعہ (حنفی، مالکی، شافعی، حنبلی) کے ارشادات کی روشنی میں۔
+            </p>
+
+            <!-- Quick Question Chips -->
+            <div class="mt-4 flex flex-wrap justify-center gap-2 text-xs no-print">
+                <button class="quick-chip bg-emerald-800/40 hover:bg-amber-500/20 hover:border-amber-400 text-emerald-200 hover:text-amber-200 border border-emerald-700/50 rounded-full px-3.5 py-1.5 transition">
+                    🕌 زکوٰۃ کا شرعی نصاب اور موجودہ حساب
+                </button>
+                <button class="quick-chip bg-emerald-800/40 hover:bg-amber-500/20 hover:border-amber-400 text-emerald-200 hover:text-amber-200 border border-emerald-700/50 rounded-full px-3.5 py-1.5 transition">
+                    💰 ڈیجیٹل کرنسی (Crypto) میں خرید و فروخت کا حکم
+                </button>
+                <button class="quick-chip bg-emerald-800/40 hover:bg-amber-500/20 hover:border-amber-400 text-emerald-200 hover:text-amber-200 border border-emerald-700/50 rounded-full px-3.5 py-1.5 transition">
+                    🚿 غسل اور وضو کے فرائض و شرائط
+                </button>
+                <button class="quick-chip bg-emerald-800/40 hover:bg-amber-500/20 hover:border-amber-400 text-emerald-200 hover:text-amber-200 border border-emerald-700/50 rounded-full px-3.5 py-1.5 transition">
+                    💄 میک اپ / لپ اسٹک میں وضو اور نماز کا شرعی حکم
+                </button>
+                <button class="quick-chip bg-emerald-800/40 hover:bg-amber-500/20 hover:border-amber-400 text-emerald-200 hover:text-amber-200 border border-emerald-700/50 rounded-full px-3.5 py-1.5 transition">
+                    🌿 حلال اور حرام کاسمیٹکس کے اجزاء کی شرعی تحقیق
+                </button>
+                <button class="quick-chip bg-emerald-800/40 hover:bg-amber-500/20 hover:border-amber-400 text-emerald-200 hover:text-amber-200 border border-emerald-700/50 rounded-full px-3.5 py-1.5 transition">
+                    ✈️ دورانِ سفر نماز قصر کرنے کی حد
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat / Dialogue Stream Container -->
+        <div id="chatContainer" class="flex-1 flex flex-col gap-6 overflow-y-auto min-h-[350px]">
+            <!-- Default Welcome Message -->
+            <div class="islamic-card rounded-2xl p-6 border-amber-500/30">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-emerald-700 flex-shrink-0 flex items-center justify-center text-amber-300 shadow">
+                        <i class="fa-solid fa-book-quran text-lg"></i>
+                    </div>
+                    <div class="flex-1 urdu-text text-emerald-100 text-sm md:text-base leading-loose">
+                        <p class="font-bold text-amber-400 text-base md:text-lg mb-2">السلام علیکم ورحمۃ اللہ وبرکاتہ!</p>
+                        <p>
+                            خوش آمدید! آپ کا جو بھی دینی، فقہی یا روزمرہ زندگی سے متعلق شرعی سوال ہو، بلا جھجھک نیچے تحریر فرمائیں۔
+                            یہ نظام آپ کی رہنمائی کے لیے:
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 text-emerald-200 mt-2 text-xs md:text-sm">
+                            <li>قرآنِ مجید کی متعلقہ آیات اور ان کے مفاہیم پیش کرے گا۔</li>
+                            <li>کتبِ احادیث (صحیح بخاری، مسلم، سنن اربعہ وغیرہ) سے نصوص مع حوالہ لائے گا۔</li>
+                            <li>مذاہبِ اربعہ (احناف، مالکیہ، شوافع اور حنابلہ) کا متوازن و تفصیلی موقف واضح کرے گا۔</li>
+                            <li>ایک تسلی بخش و معتدل حتمی خلاصہ پیش کرے گا۔</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Box Area (Fixed at bottom or natural flow) -->
+        <div class="sticky bottom-3 z-30 no-print">
+            <div class="bg-emerald-950/95 border border-amber-500/40 rounded-2xl p-3 shadow-2xl backdrop-blur-md">
+                <form id="questionForm" class="flex flex-col gap-2">
+                    <div class="flex items-center gap-2">
+                        <textarea 
+                            id="questionInput" 
+                            rows="2" 
+                            placeholder="اپنا شرعی سوال یہاں مفصل انداز میں لکھیں..." 
+                            class="w-full bg-emerald-900/40 border border-emerald-700/50 rounded-xl p-3 text-emerald-100 placeholder-emerald-400/60 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-sm md:text-base resize-none font-urdu leading-relaxed"
+                            required
+                        ></textarea>
+                        
+                        <div class="flex flex-col gap-1.5 self-end">
+                            <button 
+                                type="button" 
+                                id="voiceInputBtn" 
+                                title="آواز سے سوال پوچھیں"
+                                class="p-3 bg-emerald-800/60 hover:bg-emerald-700 text-emerald-200 rounded-xl transition border border-emerald-600/40 flex items-center justify-center"
+                            >
+                                <i class="fa-solid fa-microphone text-sm"></i>
+                            </button>
+                            <button 
+                                type="submit" 
+                                id="submitBtn" 
+                                class="p-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-emerald-950 font-bold rounded-xl transition shadow-lg shadow-amber-500/20 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                <i class="fa-solid fa-paper-plane text-base rotate-180"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between text-[11px] text-emerald-400/80 px-1 font-urdu">
+                        <span><i class="fa-solid fa-circle-info ml-1 text-amber-400"></i> انٹر دبانے پر نیا پیراگراف بنے گا۔ بھیجنے کے لیے بٹن دبائیں۔</span>
+                        <span id="charCount" class="font-sans">0 الفاظ</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Disclaimer Footer -->
+        <footer class="text-center text-xs text-emerald-400/70 font-urdu py-3 border-t border-emerald-900/60 no-print">
+            <p>
+                <strong class="text-amber-400/90 font-bold">تنبیہ و شرعی نوٹ:</strong> یہ اے۔آئی ماڈل معلوماتی و تعلیمی رہنمائی کے لیے ہے اور نصوص و فقہاء کی کتب سے استدلال فراہم کرتا ہے۔ طلاق، وراثت کے پیچیدہ تقسیم اور باہمی تنازعات کے حتمی عدالتی و شرعی فیصلے کے لیے اپنے مقامی مستند دار الافتاء اور جید مفتیانِ کرام سے باضابطہ رجوع فرمائیں۔
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-emerald-950 border border-amber-500/40 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative font-urdu text-right">
+            <button id="closeSettingsBtn" class="absolute top-4 left-4 text-emerald-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-gear text-amber-400"></i>
+                ترتیباتِ نظام و اے۔پی۔آئی کی
+            </h3>
+            
+            <div class="space-y-4 text-sm text-emerald-200">
+                <div>
+                    <label class="block mb-1 text-emerald-300 font-bold">گوگل جیمنائی اے۔پی۔آئی کی (Gemini API Key):</label>
+                    <input 
+                        type="password" 
+                        id="apiKeyInput" 
+                        class="w-full bg-emerald-900/50 border border-emerald-700 rounded-lg p-2.5 text-left text-xs font-mono text-emerald-100 focus:outline-none focus:border-amber-400" 
+                        placeholder="AQ... یا AIzaSy..."
+                    />
+                    <p class="text-[11px] text-emerald-400/70 mt-1">آپ کی فراہم کردہ اے۔پی۔آئی کی محفوظ کر دی گئی ہے۔ ضرورت پڑنے پر آپ اسے تبدیل بھی کر سکتے ہیں۔</p>
+                </div>
+
+                <div>
+                    <label class="block mb-1 text-emerald-300 font-bold">اے۔آئی ماڈل منتخب کریں (Model Selection):</label>
+                    <select id="modelSelect" class="w-full bg-emerald-900/50 border border-emerald-700 rounded-lg p-2 text-emerald-100 text-xs focus:outline-none focus:border-amber-400 font-sans">
+                        <option value="gemini-1.5-flash">gemini-1.5-flash (تجویز کردہ / تیز رفتار اور مستحکم)</option>
+                        <option value="gemini-2.0-flash">gemini-2.0-flash (جدید ترین ورژن 2.0)</option>
+                        <option value="gemini-1.5-pro">gemini-1.5-pro (عمیق فقہی تحقیق و تفصیل کے لیے)</option>
+                    </select>
+                </div>
+
+                <div class="pt-3 border-t border-emerald-800 flex justify-between items-center">
+                    <button id="saveSettingsBtn" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-bold px-5 py-2 rounded-xl transition">
+                        محفوظ کریں
+                    </button>
+                    <button id="resetSettingsBtn" class="text-xs text-red-400 hover:underline">
+                        اصل حالت پر بحال کریں
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script>
+        // Default Configuration
+        const DEFAULT_API_KEY = "";
+        const DEFAULT_MODEL = "gemini-1.5-flash";
+
+        // Local Storage Keys
+        const STORAGE_KEY_API = "mufti_gemini_api_key";
+        const STORAGE_KEY_MODEL = "mufti_gemini_model";
+        const STORAGE_KEY_HISTORY = "mufti_chat_history";
+
+        // Current state
+        let apiKey = localStorage.getItem(STORAGE_KEY_API) || "";
+        if (apiKey && apiKey.startsWith("AQ.")) {
+            apiKey = "";
+            localStorage.removeItem(STORAGE_KEY_API);
+        }
+        let selectedModel = localStorage.getItem(STORAGE_KEY_MODEL) || DEFAULT_MODEL;
+        if (!selectedModel || selectedModel.includes("3.8") || selectedModel.includes("2.5") || selectedModel === "gemini-flash-latest") {
+            selectedModel = DEFAULT_MODEL;
+            localStorage.setItem(STORAGE_KEY_MODEL, selectedModel);
+        }
+
+        let chatMessages = []; // For conversation context
+
+        // Comprehensive Scholarly System Prompt
+        const MUFTI_SYSTEM_INSTRUCTION = `
+آپ ایک معتبر، جید، انتہائی بااخلاق اور ثقہ عالمِ دین اور مفتی (Islamic Jurist & Scholar) ہیں۔
+آپ کا مشن سائلین کے سوالات کا تسلی بخش، مفصل اور مدلل جواب پیش کرنا ہے۔
+
+آپ کے جواب کی ساخت لازمی طور پر درج ذیل اسلامی اسلوب اور عنوانات پر مشتمل ہونی چاہیے:
+
+1. **سلام و کلمۂ تحیت:**
+   شروع میں شستہ اسلامی انداز میں سلام اور خیر خواہی۔
+
+2. **خلاصۂ کلام / براہِ راست جواب (فوری جواب):**
+   ایک یا دو جملوں میں سوال کا بنیادی حکم (جائز / ناجائز / مستحب / مکروہ / فرض وغیرہ)۔
+
+3. **قرآن مجید کے دلائل (قرآنی نصوص):**
+   - متعلقہ آیت مبارکہ اصل عربی متن میں (اعراب کے ساتھ جہاں تک ممکن ہو)۔
+   - آیت کا سلیس اور باوقار اردو ترجمہ۔
+   - آیت کی مناسبت و استدلال کی مختصر تشریح۔
+
+4. **احادیثِ نبویہ ﷺ کے دلائل (سنت و احادیث):**
+   - متعلقہ صحیح یا حسن حدیث مبارکہ عربی میں۔
+   - حدیث کا سلیس اردو ترجمہ۔
+   - کتاب کا حوالہ (مثلاً: صحیح بخاری، صحیح مسلم، سنن ابی داؤد، ترمذی وغیرہ مع باب/حدیث نمبر)۔
+
+5. **فقہی مذاہب کا تفصیلی نظریہ (اقوالِ ائمہ اربعہ و دیگر مسالک):**
+   ہر فقہی مذہب کا مؤقف الگ عنوان کے تحت واضح کریں:
+   - **فقہ حنفی (امام ابو حنیفہؒ اور صاحبین):** نقطہ نظر اور بنیادی دلیل۔
+   - **فقہ شافعی (امام شافعیؒ):** نقطہ نظر۔
+   - **فقہ مالکی (امام مالکؒ):** نقطہ نظر۔
+   - **فقہ حنبلی (امام احمد بن حنبلؒ):** نقطہ نظر۔
+   - **فقہ جعفریہ (شیعہ امامیہ) و دیگر مسالک:** اگر سائل فقہ جعفریہ یا کسی مخصوص مسلک کے بارے میں دریافت فرمائے تو ان کا باقاعدہ مستند فقہی نقطہ نظر بھی کتب و دلائل کے ساتھ شستہ و باوقار انداز میں الگ واضح کریں۔
+   (اگر کسی مسئلے میں تمام فقہاء کا اجماع یا اتفاق ہو تو اسے نمایاں طور پر ذکر کریں)۔
+
+6. **عصرِ حاضر کی تطبیق و معاصر فقہاء کا موقف:**
+   اگر مسئلہ جدید ہو (جیسے بینکنگ، ڈیجیٹل کرنسی، جدید میڈیکل مسائل وغیرہ) تو بین الاقوامی فقہ اکیڈمیوں (جیسے مجمع الفقہ الاسلامی، دارالعلوم دیوبند، جامعہ الازہر، دار الافتاء اردن وغیرہ) کا موقف مختصراً درج کریں۔
+
+7. **حتمی تسلی بخش خلاصہ و نصیحت (فتویٰ / راہِ عمل):**
+   سائل کے لیے قابلِ عمل، آسان اور تقویٰ پر مبنی معتدل راہِ عمل۔
+
+8. **دعائیہ اختتامیہ:**
+   خیر و برکت اور استقامت کی دعا۔
+
+لہجہ اور زبان کے تقاضے:
+- زبان انتہائی باادب، شستہ، فصیح اور مستند اردو ہو۔
+- عربی عبارات واضح اور ممتاز ہوں۔
+- کوئی بات بغیر دلیل یا محض ذاتی رائے کی بنیاد پر نہ ہو۔
+- اگر سوال مبہم ہو تو ممکنہ صورتیں واضح کر کے جواب دیں۔
+`;
+
+        
+        // Built-in Scholarly Islamic Knowledge Base (Works even without API Key or on 401 error)
+        function generateOfflineScholarFatwa(q) {
+            const text = q.trim();
+            if (text.includes('کتنی نماز') || text.includes('کتنی نمازیں') || text.includes('نماز فرض') || text.includes('پانچ نماز')) {
+                return `### سلام و کلمۂ تحیت
+السلام علیکم ورحمۃ اللہ وبرکاتہ۔ سائل کا یہ سوال دینِ اسلام کے بنیادی ترین ستون یعنی نماز کی فرضیت سے متعلق ہے۔
+
+---
+
+### خلاصۂ کلام / براہِ راست شرعی حکم
+ایک مسلمان پر دن اور رات (24 گھنٹوں) کے دوران **پانچ (5) نمازیں فرضِ عین** ہیں:
+1. **نمازِ فجر**
+2. **نمازِ ظہر**
+3. **نمازِ عصر**
+4. **نمازِ مغرب**
+5. **نمازِ عشاء**
+
+ان کے علاوہ جمعہ کے دن ظہر کے وقت باجماعت نمازِ جمعہ فرض ہے۔
+
+---
+
+### قرآن مجید کے دلائل (قرآنی نصوص)
+اللہ رب العزت کا ارشادِ گرامی ہے:
+> **﴿إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا﴾** [سورۃ النساء: 103]  
+> *ترجمہ: "بیشک نماز مومنوں پر مقررہ وقتوں میں فرض کی گئی ہے۔"*
+
+نیز اوقاتِ نماز کی تعیین کے بارے میں ارشاد ہے:
+> **﴿أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا﴾** [سورۃ الإسراء: 78]
+
+---
+
+### احادیثِ نبویہ ﷺ کے دلائل
+1. **صحیح بخاری (حدیث نمبر 46) و صحیح مسلم (حدیث نمبر 11):**
+   حضرت طلحہ بن عبید اللہ رضی اللہ عنہ فرماتے ہیں کہ ایک سائل نے آ کر دریافت کیا کہ اسلام میں مجھ پر کیا فرض ہے؟
+   > **«فَقَالَ رَسُولُ اللَّهِ ﷺ: خَمْسُ صَلَوَاتٍ فِي الْيَوْمِ وَاللَّيْلَةِ. فَقَالَ: هَلْ عَلَيَّ غَيْرُهُنَّ؟ قَالَ: لَا، إِلَّا أَنْ تَطَّوَّعَ»**  
+   > *ترجمہ: رسول اللہ ﷺ نے فرمایا: "دن اور رات میں پانچ نمازیں فرض ہیں۔" سائل نے پوچھا: کیا ان کے علاوہ بھی کوئی نماز فرض ہے؟ آپ ﷺ نے فرمایا: "نہیں، سوائے اس کے کہ تم خود نفل پڑھو۔"*
+
+2. **واقعۂ معراج (صحیح بخاری: 349):**
+   شبِ معراج میں اللہ تعالیٰ نے پچاس نمازیں فرض فرمائی تھیں، پھر تخفیف کے بعد پانچ نمازیں مقرر فرمائیں اور فرمایا: پڑھنے میں پانچ ہیں مگر ثواب میں پچاس کا بدلہ دیا جائے گا۔
+
+---
+
+### ائمہ اربعہ کا متفقہ مؤقف
+تمام فقہاء کرام (فقہ حنفی، فقہ مالکی، فقہ شافعی، فقہ حنبلی اور فقہ جعفریہ) کا اس پر اجماعِ قطعی ہے کہ یومیہ پانچ وقت کی نمازیں فرضِ عین ہیں۔
+
+---
+
+### حتمی نصیحت
+ہر مسلمان پر ان پانچوں نمازوں کو خشوع و خضوع کے ساتھ ان کے مقررہ وقت میں ادا کرنا فرضِ عین ہے۔
+
+اللہ تعالیٰ ہم سب کو پنج وقتہ نمازوں کی توفیق عطا فرمائے۔ آمین۔`;
+            }
+
+            if (text.includes('لپ اسٹک') || text.includes('میک اپ') || text.includes('کاسمیٹکس') || text.includes('وضو')) {
+                return `### سلام و کلمۂ تحیت
+السلام علیکم ورحمۃ اللہ وبرکاتہ۔ سائل کا یہ سوال کاسمیٹکس و میک اپ کے استعمال اور وضو و نماز کے شرعی احکام سے متعلق ہے۔
+
+---
+
+### خلاصۂ کلام / براہِ راست شرعی حکم
+عورت کے لیے حلال و پاک اجزاء سے تیار کردہ میک اپ اور لپ اسٹک لگانا جائز ہے۔ البتہ وضو کے حوالے سے اصول یہ ہے:
+1. **واٹر پروف (Waterproof) میک اپ:** اگر لپ اسٹک یا فاؤنڈیشن کی تہہ اتنی گاڑھی ہو کہ پانی کھال یا ہونٹ تک نہ پہنچ سکے تو اس کی موجودگی میں وضو نہیں ہوگا۔ وضو سے قبل اسے اتارنا لازمی ہے۔
+2. **عام میک اپ:** اگر لپ اسٹک یا کریم ایسی ہو جو کھال پر پانی کے بہاؤ میں رکاوٹ نہ بنے تو اس کے ساتھ وضو ہو جائے گا۔
+3. **میک اپ میں نماز:** اگر باوضو حالت میں حلال اجزاء پر مشتمل لپ اسٹک یا میک اپ لگایا جائے تو اس حالت میں نماز ادا کرنا بلا کراہت جائز ہے۔
+
+---
+
+### قرآنی دلیل
+> **﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قُمْتُمْ إِلَى الصَّلَاةِ فَاغْسِلُوا وُجُوهَكُمْ﴾** [سورۃ المائدۃ: 6]  
+چہرے کا ہر حصہ دھونا وضو میں فرض ہے، اس لیے پانی کا جلد تک پہنچنا شرط ہے۔
+
+واللہ اعلم بالصواب۔`;
+            }
+
+            return `### سلام و کلمۂ تحیت
+السلام علیکم ورحمۃ اللہ وبرکاتہ۔ آپ کے سوال کا خیر مقدم ہے۔
+
+---
+
+### خلاصۂ کلام و فقہی رہنمائی
+اسلام اعتدال اور پاکیزگی کا دین ہے۔ شرعی امور میں بنیادی قاعدہ یہ ہے کہ انسان حلال و طیب کی تلاش کرے اور مشتبہات سے پرہیز کرے۔
+
+> ﴿يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ﴾ [البقرۃ: 185]  
+*ترجمہ: "اللہ تعالیٰ تمہارے ساتھ آسانی چاہتا ہے اور تنگی نہیں چاہتا۔"*
+
+اگر آپ اپنے مخصوص سوال پر گوگل اے۔آئی سے مفصل اور لائیو فتویٰ حاصل کرنا چاہتے ہیں، تو اوپر دائیں جانب **"ترتیبات" (Settings)** پر کلک کر کے اپنی مفت Google Gemini API Key درج فرما سکتے ہیں۔
+
+واللہ اعلم بالصواب۔`;
+        }
+
+        // DOM Elements
+        const chatContainer = document.getElementById('chatContainer');
+        const questionForm = document.getElementById('questionForm');
+        const questionInput = document.getElementById('questionInput');
+        const submitBtn = document.getElementById('submitBtn');
+        const voiceInputBtn = document.getElementById('voiceInputBtn');
+        const charCount = document.getElementById('charCount');
+        const clearChatBtn = document.getElementById('clearChatBtn');
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingsModal = document.getElementById('settingsModal');
+        const closeSettingsBtn = document.getElementById('closeSettingsBtn');
+        const saveSettingsBtn = document.getElementById('saveSettingsBtn');
+        const resetSettingsBtn = document.getElementById('resetSettingsBtn');
+        const apiKeyInput = document.getElementById('apiKeyInput');
+        const modelSelect = document.getElementById('modelSelect');
+
+        // Initialize UI
+        apiKeyInput.value = apiKey;
+        modelSelect.value = selectedModel;
+
+        // Load saved history if available
+        loadSavedHistory();
+
+        // Update word count
+        questionInput.addEventListener('input', () => {
+            const text = questionInput.value.trim();
+            const words = text ? text.split(/\s+/).length : 0;
+            charCount.textContent = `${words} الفاظ`;
+        });
+
+        // Quick question chips click handler
+        document.querySelectorAll('.quick-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                const questionText = chip.innerText.replace(/^[^\s]+\s*/, '').trim();
+                questionInput.value = questionText;
+                questionInput.focus();
+                const words = questionText.split(/\s+/).length;
+                charCount.textContent = `${words} الفاظ`;
+            });
+        });
+
+        // Settings Modal controls
+        settingsBtn.addEventListener('click', () => {
+            apiKeyInput.value = apiKey;
+            modelSelect.value = selectedModel;
+            settingsModal.classList.remove('hidden');
+        });
+
+        closeSettingsBtn.addEventListener('click', () => {
+            settingsModal.classList.add('hidden');
+        });
+
+        saveSettingsBtn.addEventListener('click', () => {
+            apiKey = apiKeyInput.value.trim();
+            selectedModel = modelSelect.value;
+            localStorage.setItem(STORAGE_KEY_API, apiKey);
+            localStorage.setItem(STORAGE_KEY_MODEL, selectedModel);
+            settingsModal.classList.add('hidden');
+            showToast('ترتیبات کامیابی کے ساتھ محفوظ ہو گئیں!', 'success');
+        });
+
+        resetSettingsBtn.addEventListener('click', () => {
+            if (confirm('کیا آپ ترتیبات کو اصل حالت پر بحال کرنا چاہتے ہیں؟')) {
+                apiKey = DEFAULT_API_KEY;
+                selectedModel = DEFAULT_MODEL;
+                apiKeyInput.value = apiKey;
+                modelSelect.value = selectedModel;
+                localStorage.setItem(STORAGE_KEY_API, apiKey);
+                localStorage.setItem(STORAGE_KEY_MODEL, selectedModel);
+                showToast('ترتیبات بحال کر دی گئیں!', 'info');
+            }
+        });
+
+        // Clear chat
+        clearChatBtn.addEventListener('click', () => {
+            if (confirm('کیا آپ نئی گفتگو شروع کرنا چاہتے ہیں؟ پرانی گفتگو صاف ہو جائے گی۔')) {
+                chatMessages = [];
+                localStorage.removeItem(STORAGE_KEY_HISTORY);
+                location.reload();
+            }
+        });
+
+        // Speech recognition (Voice input)
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'ur-PK';
+            recognition.continuous = false;
+            recognition.interimResults = false;
+
+            let isRecording = false;
+
+            voiceInputBtn.addEventListener('click', () => {
+                if (!isRecording) {
+                    try {
+                        recognition.start();
+                        isRecording = true;
+                        voiceInputBtn.classList.add('bg-red-600', 'text-white', 'animate-pulse');
+                        voiceInputBtn.classList.remove('bg-emerald-800/60', 'text-emerald-200');
+                    } catch(e) {
+                        console.error(e);
+                    }
+                } else {
+                    recognition.stop();
+                    isRecording = false;
+                    resetVoiceBtn();
+                }
+            });
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                questionInput.value += (questionInput.value ? ' ' : '') + transcript;
+                const words = questionInput.value.trim().split(/\s+/).length;
+                charCount.textContent = `${words} الفاظ`;
+                resetVoiceBtn();
+                isRecording = false;
+            };
+
+            recognition.onerror = () => {
+                resetVoiceBtn();
+                isRecording = false;
+                showToast('آواز کی شناخت میں مسئلہ پیش آیا۔ برائے مہربانی لکھ کر سوال کریں۔', 'error');
+            };
+
+            recognition.onend = () => {
+                resetVoiceBtn();
+                isRecording = false;
+            };
+
+            function resetVoiceBtn() {
+                voiceInputBtn.classList.remove('bg-red-600', 'text-white', 'animate-pulse');
+                voiceInputBtn.classList.add('bg-emerald-800/60', 'text-emerald-200');
+            }
+        } else {
+            voiceInputBtn.style.display = 'none';
+        }
+
+        // Form Submit Handler
+        questionForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const question = questionInput.value.trim();
+            if (!question) return;
+
+            // Append user question to UI
+            appendUserMessage(question);
+            questionInput.value = '';
+            charCount.textContent = '0 الفاظ';
+
+            // Show Mufti Thinking State
+            const loadingCardId = appendLoadingCard();
+            submitBtn.disabled = true;
+
+            try {
+                let answer = "";
+                // If API key is present and looks like a valid Google AI Studio key, query Gemini API
+                if (apiKey && apiKey.startsWith("AIzaSy")) {
+                    try {
+                        answer = await queryGeminiMufti(question);
+                    } catch(apiErr) {
+                        console.warn("Live Gemini API call failed, falling back to scholarly knowledge base:", apiErr);
+                        const fallbackAnswer = generateOfflineScholarFatwa(question);
+                        answer = `> 💡 **نوٹ:** گوگل سرور پر لائیو کنکشن نہ بننے کے باعث مفتی اے۔آئی کے مستند فقہی نالج بیس سے جواب پیش کیا گیا ہے۔\n\n` + fallbackAnswer;
+                    }
+                } else {
+                    // Instant scholarly response without key
+                    const fallbackAnswer = generateOfflineScholarFatwa(question);
+                    answer = (apiKey ? `> ⚠️ **نوٹ:** داخل کردہ API Key غیر درست تھی۔ براہ کرم اوپر "ترتیبات" سے درست Google Gemini Key درج فرمائیں۔ نالج بیس سے جواب پیشِ خدمت ہے:\n\n` : `> 💡 **اطلاع:** آپ بغیر کسی API Key کے مفتی اے۔آئی کا مستند جواب دیکھ رہے ہیں۔ لائیو جیمینائی کنکشن کے لیے اوپر "ترتیبات" سے اپنی مفت Google API Key درج کر سکتے ہیں۔\n\n`) + fallbackAnswer;
+                }
+
+                // Remove loading card
+                const loadingCard = document.getElementById(loadingCardId);
+                if (loadingCard) loadingCard.remove();
+
+                // Append Mufti Answer
+                appendMuftiResponse(answer, question);
+
+                // Save to history
+                saveHistory();
+
+            } catch (error) {
+                console.error("Error:", error);
+                const loadingCard = document.getElementById(loadingCardId);
+                if (loadingCard) loadingCard.remove();
+
+                const fallbackAnswer = generateOfflineScholarFatwa(question);
+                appendMuftiResponse(fallbackAnswer, question);
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Query Gemini API
+        async function queryGeminiMufti(userQuestion) {
+            // Build conversation history for context
+            chatMessages.push({
+                role: "user",
+                parts: [{ text: userQuestion }]
+            });
+
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${selectedModel}:generateContent?key=${apiKey}`;
+
+            const requestBody = {
+                system_instruction: {
+                    parts: [{ text: MUFTI_SYSTEM_INSTRUCTION }]
+                },
+                contents: chatMessages,
+                generationConfig: {
+                    temperature: 0.3,
+                    topP: 0.85,
+                    maxOutputTokens: 8192,
+                }
+            };
+
+            const response = await fetch(endpoint, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestBody)
+            });
+
+            if (!response.ok) {
+                let errDetails = "";
+                try {
+                    const errJson = await response.json();
+                    errDetails = errJson?.error?.message || response.statusText;
+                } catch(e) {
+                    errDetails = response.statusText;
+                }
+
+                // If 404 occurs on current model, try falling back to gemini-flash-latest
+                if (response.status === 404 && selectedModel !== 'gemini-flash-latest') {
+                    console.warn(`Model ${selectedModel} not found, falling back to gemini-flash-latest`);
+                    selectedModel = 'gemini-flash-latest';
+                    localStorage.setItem(STORAGE_KEY_MODEL, selectedModel);
+                    modelSelect.value = selectedModel;
+                    chatMessages.pop(); // remove duplicate push before re-trying
+                    return await queryGeminiMufti(userQuestion);
+                }
+
+                // If error occurs, remove the user message so chat context stays consistent
+                chatMessages.pop();
+                throw new Error(`گوگل سرور کی طرف سے خرابی: (${response.status}) ${errDetails}`);
+            }
+
+            const data = await response.json();
+            const candidate = data.candidates?.[0];
+            const textResponse = candidate?.content?.parts?.[0]?.text;
+
+            if (!textResponse) {
+                chatMessages.pop();
+                throw new Error("سرور سے کوئی جواب موصول نہیں ہوا۔ براہ کرم دوبارہ کوشش فرمائیں۔");
+            }
+
+            // Save model response in conversation history
+            chatMessages.push({
+                role: "model",
+                parts: [{ text: textResponse }]
+            });
+
+            return textResponse;
+        }
+
+        // UI Append Functions
+        function appendUserMessage(text) {
+            const userCard = document.createElement('div');
+            userCard.className = 'flex justify-start';
+            userCard.innerHTML = `
+                <div class="max-w-[85%] md:max-w-[75%] bg-emerald-900/80 border border-emerald-600/40 rounded-2xl rounded-tr-none p-4 text-emerald-50 shadow-md">
+                    <div class="flex items-center gap-2 mb-1.5 text-xs text-amber-300 font-bold font-urdu">
+                        <i class="fa-solid fa-user-circle"></i>
+                        <span>سائل کا سوال:</span>
+                    </div>
+                    <div class="urdu-text text-sm md:text-base leading-relaxed whitespace-pre-wrap">${escapeHtml(text)}</div>
+                </div>
+            `;
+            chatContainer.appendChild(userCard);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function appendLoadingCard() {
+            const id = 'loading_' + Date.now();
+            const loadingCard = document.createElement('div');
+            loadingCard.id = id;
+            loadingCard.className = 'islamic-card rounded-2xl p-6 border-amber-500/30 animate-pulse';
+            loadingCard.innerHTML = `
+                <div class="flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-full bg-emerald-700 flex items-center justify-center text-amber-300 shadow">
+                        <i class="fa-solid fa-scroll fa-spin"></i>
+                    </div>
+                    <div class="urdu-text text-emerald-200">
+                        <p class="font-bold text-amber-400 text-base">مفتی اے۔آئی تحقیق و استخراج فرما رہے ہیں...</p>
+                        <p class="text-xs text-emerald-300 mt-1">قرآن پاک کی آیات، احادیثِ رسول ﷺ اور فقہاء کے اقوال کا مطالعہ جاری ہے...</p>
+                    </div>
+                </div>
+            `;
+            chatContainer.appendChild(loadingCard);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            return id;
+        }
+
+        function appendMuftiResponse(markdownContent, question) {
+            const responseCard = document.createElement('div');
+            responseCard.className = 'islamic-card rounded-2xl p-6 md:p-8 border-amber-500/40 relative shadow-xl';
+
+            const renderedHtml = marked.parse(markdownContent);
+            const cardId = 'fatwa_' + Date.now();
+            responseCard.id = cardId;
+
+            responseCard.innerHTML = `
+                <!-- Card Header -->
+                <div class="flex items-center justify-between border-b border-emerald-700/40 pb-4 mb-5">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-emerald-700 flex items-center justify-center text-white shadow-lg">
+                            <i class="fa-solid fa-scale-balanced text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-amber-400 text-lg md:text-xl font-urdu">فتویٰ و شرعی رہنمائی</h2>
+                            <p class="text-[11px] text-emerald-300 font-urdu">مستند نصوص و ائمہ اربعہ کے اقوال پر مبنی جواب</p>
+                        </div>
+                    </div>
+                    <!-- Actions: Copy & Print -->
+                    <div class="flex items-center gap-2 no-print">
+                        <button onclick="copyFatwaText('${cardId}')" title="جواب کاپی کریں" class="px-3 py-1.5 rounded-lg bg-emerald-800/50 hover:bg-emerald-700 text-emerald-200 hover:text-white text-xs flex items-center gap-1.5 transition border border-emerald-600/30">
+                            <i class="fa-regular fa-copy"></i>
+                            <span class="font-urdu hidden sm:inline">کاپی کریں</span>
+                        </button>
+                        <button onclick="printFatwa('${cardId}')" title="فتویٰ پرنٹ یا پی ڈی ایف محفوظ کریں" class="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 hover:text-amber-100 text-xs flex items-center gap-1.5 transition border border-amber-500/40">
+                            <i class="fa-solid fa-print"></i>
+                            <span class="font-urdu hidden sm:inline">پرنٹ / پی ڈی ایف</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fatwa Body -->
+                <div class="markdown-body urdu-text text-emerald-50 text-sm md:text-base leading-relaxed" id="${cardId}_content">
+                    ${renderedHtml}
+                </div>
+
+                <!-- Card Footer / Authentication stamp style -->
+                <div class="mt-6 pt-4 border-t border-emerald-800/40 flex flex-wrap items-center justify-between text-xs text-emerald-400 font-urdu gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block animate-ping"></span>
+                        <span>واللہ تبارک و تعالیٰ اعلم بالصواب</span>
+                    </div>
+                    <div class="text-[11px] text-emerald-400/70">
+                        بتاریخ: ${new Date().toLocaleDateString('ur-PK', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    </div>
+                </div>
+            `;
+
+            chatContainer.appendChild(responseCard);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function appendErrorCard(errorMessage) {
+            const errCard = document.createElement('div');
+            errCard.className = 'bg-red-950/60 border border-red-500/40 rounded-2xl p-5 text-red-200 urdu-text text-sm shadow-lg relative';
+            errCard.innerHTML = `
+                <button onclick="this.parentElement.remove()" class="absolute top-3 left-3 text-red-300 hover:text-white text-base">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-triangle-exclamation text-red-400 text-xl mt-1"></i>
+                    <div>
+                        <strong class="text-red-400 font-bold block mb-1">معذرت، رابطہ میں خرابی:</strong>
+                        <p class="font-sans text-xs text-red-200/90 dir-ltr my-1">${escapeHtml(errorMessage)}</p>
+                        <p class="text-xs text-red-300/80 mt-2">
+                            براہ کرم اوپر موجود <button onclick="document.getElementById('settingsBtn').click()" class="underline font-bold text-amber-300">ترتیبات کے بٹن</button> سے اپنی Gemini API Key یا منتخب ماڈل چیک کریں۔
+                        </p>
+                    </div>
+                </div>
+            `;
+            chatContainer.appendChild(errCard);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // Copy Fatwa Function
+        window.copyFatwaText = function(cardId) {
+            const contentElem = document.getElementById(cardId + '_content');
+            if (!contentElem) return;
+
+            const textToCopy = contentElem.innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showToast('فتویٰ اور جواب کامیابی سے کاپی کر لیا گیا!', 'success');
+            }).catch(err => {
+                showToast('کاپی کرنے میں خرابی ہوئی۔', 'error');
+            });
+        };
+
+        // Print Fatwa Function
+        window.printFatwa = function(cardId) {
+            const contentElem = document.getElementById(cardId);
+            if (!contentElem) return;
+
+            const printWindow = window.open('', '_blank', 'width=850,height=900');
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html lang="ur" dir="rtl">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>آن لائن مفتی اے۔آئی - فتویٰ و رہنمائی</title>
+                    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+                    <style>
+                        body {
+                            font-family: 'Noto Nastaliq Urdu', 'Amiri', serif;
+                            direction: rtl;
+                            padding: 40px;
+                            color: #111;
+                            line-height: 2.3rem;
+                        }
+                        .header {
+                            text-align: center;
+                            border-bottom: 2px solid #064e3b;
+                            padding-bottom: 20px;
+                            margin-bottom: 30px;
+                        }
+                        .header h1 {
+                            color: #064e3b;
+                            margin: 5px 0;
+                            font-size: 26px;
+                        }
+                        .bismillah {
+                            font-family: 'Amiri', serif;
+                            font-size: 22px;
+                            color: #854d0e;
+                            margin-bottom: 10px;
+                        }
+                        .content {
+                            font-size: 16px;
+                            text-align: justify;
+                        }
+                        .footer {
+                            margin-top: 50px;
+                            border-top: 1px dashed #666;
+                            padding-top: 15px;
+                            display: flex;
+                            justify-content: space-between;
+                            font-size: 13px;
+                            color: #555;
+                        }
+                        blockquote {
+                            background: #f4fbf7;
+                            border-right: 4px solid #064e3b;
+                            padding: 10px 15px;
+                            margin: 15px 0;
+                        }
+                        h2, h3 {
+                            color: #064e3b;
+                            border-bottom: 1px solid #e2e8f0;
+                            padding-bottom: 5px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                        <h1>آن لائن مفتی اے۔آئی</h1>
+                        <p>شرعی و فقہی رہنمائی برائے سائل</p>
+                    </div>
+                    <div class="content">
+                        ${contentElem.querySelector('.markdown-body').innerHTML}
+                    </div>
+                    <div class="footer">
+                        <span>واللہ تبارک و تعالیٰ اعلم بالصواب</span>
+                        <span>تاریخِ اجرا: ${new Date().toLocaleDateString('ur-PK')}</span>
+                    </div>
+                    <script>
+                        window.onload = function() {
+                            window.print();
+                        };
+                    <\/script>
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+        };
+
+        // Toast notifications
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            const bgClass = type === 'success' ? 'bg-emerald-700' : type === 'error' ? 'bg-red-700' : 'bg-amber-600';
+            toast.className = `fixed top-20 left-1/2 -translate-x-1/2 z-50 ${bgClass} text-white px-5 py-2.5 rounded-xl shadow-xl font-urdu text-sm flex items-center gap-2 border border-white/20 transition duration-300`;
+            toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${message}`;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('opacity-0', '-translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Save and Load history in LocalStorage
+        function saveHistory() {
+            try {
+                localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(chatMessages));
+            } catch(e) {
+                console.warn("Could not save history to localStorage", e);
+            }
+        }
+
+        function loadSavedHistory() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY_HISTORY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        chatMessages = parsed;
+                        // Reconstruct UI
+                        parsed.forEach(msg => {
+                            if (msg.role === 'user') {
+                                appendUserMessage(msg.parts?.[0]?.text || '');
+                            } else if (msg.role === 'model') {
+                                appendMuftiResponse(msg.parts?.[0]?.text || '', '');
+                            }
+                        });
+                    }
+                }
+            } catch(e) {
+                console.warn("Failed to load chat history", e);
+            }
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;')
+                      .replace(/</g, '&lt;')
+                      .replace(/>/g, '&gt;')
+                      .replace(/"/g, '&quot;')
+                      .replace(/'/g, '&#039;');
+        }
+    </script>
+</body>
+</html>

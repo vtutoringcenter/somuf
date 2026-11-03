@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us â€” Our Story & Halal Philosophy | My Beauty Product</title>
+  <meta name="description" content="Discover the story behind My Beauty Product. Founded in 2020 to bring luxurious, 100% halal-certified, cruelty-free cosmetics to modern Pakistani women." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ðŸ’„</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="has-announcement">
+
+<!-- â•â• Announcement Bar â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="announcement-bar" role="banner">
+  âœ¨ Free delivery on orders above PKR 2,500 &nbsp;|&nbsp; <a href="shop.html">Shop Now â†’</a>
+  <button id="dismiss-bar" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:1rem;" aria-label="Dismiss announcement">âœ•</button>
+</div>
+
+<!-- â•â• Header â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="index.html" class="site-logo" aria-label="My Beauty Product Home">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="assets/images/logo.svg" alt="My Beauty Product Logo" style="height:48px; width:auto; border-radius:4px;" />
+        <div>
+          <span class="logo-main" style="display:block;">My Beauty Product</span>
+          <span class="logo-tagline" style="display:block;">Luxury Â· Halal Â· Timeless</span>
+        </div>
+      </div>
+    </a>
+
+    <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="mufti.html" class="ai-nav-link">مفتی اے۔آئی <span class="ai-nav-badge">NEW</span></a>
+      <a href="about.html" class="active">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="track-order.html">Track Order</a>
+    </nav>
+
+    <div class="social-icons-header" aria-label="Social media links">
+      <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg></a>
+    </div>
+
+    <button class="cart-btn open-cart" id="cart-trigger" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span>Bag</span>
+      <span class="cart-badge" id="cart-badge">0</span>
+    </button>
+
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="ai-assistant.html" style="color:var(--color-primary);font-weight:600;">âœ¨ AI Beauty Advisor</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <a href="track-order.html">Track Order</a>
+</nav>
+
+<!-- â•â• Page Hero â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>â€º</span><span>About Us</span></nav>
+    <p class="subheading">Our Story</p>
+    <h1 class="heading-xl">Where Beauty Meets Conscience</h1>
+    <p>A brand born from passion, guided by values, and crafted for every Pakistani woman who deserves the very best.</p>
+  </div>
+</div>
+
+<!-- â•â• Brand Story â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="section-padding">
+  <div class="container">
+    <div class="about-hero-section">
+      <div class="about-hero-img reveal">
+        <img src="assets/images/about_brand.jpg" alt="My Beauty Product brand story" loading="lazy" />
+      </div>
+      <div class="reveal reveal-delay-1">
+        <p class="subheading">Who We Are</p>
+        <h2 class="heading-lg" style="margin:0.75rem 0 1.5rem;">Founded on Beauty, Built on Trust</h2>
+        <p class="body-lg" style="color:var(--color-muted);margin-bottom:1.5rem;">
+          My Beauty Product was born in 2020 from a simple but powerful vision: to give Pakistani women access to truly world-class luxury beauty products that align with their values â€” without compromise.
+        </p>
+        <p style="color:var(--color-muted);line-height:1.8;margin-bottom:1.5rem;">
+          Our founder, a passionate beauty enthusiast herself, was frustrated by having to choose between quality and conscience. International luxury brands were either unavailable, unaffordable, or contained ingredients conflicting with halal principles. Local brands often lacked the premium texture, skin safety, and elegant experience she craved.
+        </p>
+        <p style="color:var(--color-muted);line-height:1.8;margin-bottom:2rem;">
+          So she built My Beauty Product â€” a brand that refuses to make that compromise. Every product in our range is meticulously formulated, halal-certified, cruelty-free, and presented in packaging that makes you feel truly special from the moment you open the box.
+        </p>
+        <div class="certifications">
+          <div class="cert-badge"><span>ðŸŒ¿</span> 100% Halal Certified</div>
+          <div class="cert-badge"><span>ðŸ°</span> Cruelty-Free</div>
+          <div class="cert-badge"><span>ðŸ‡µðŸ‡°</span> Made with Pride in Pakistan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Milestones -->
+    <div class="milestones reveal">
+      <div>
+        <div class="milestone-value">15,000+</div>
+        <div class="milestone-label">Happy Customers</div>
+      </div>
+      <div>
+        <div class="milestone-value">120+</div>
+        <div class="milestone-label">Products</div>
+      </div>
+      <div>
+        <div class="milestone-value">6+</div>
+        <div class="milestone-label">Years of Excellence</div>
+      </div>
+      <div>
+        <div class="milestone-value">98%</div>
+        <div class="milestone-label">Customer Satisfaction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• Founder Quote â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section style="background:var(--color-bg-alt);padding:var(--space-3xl) 0;">
+  <div class="container">
+    <blockquote class="about-quote reveal">
+      "Every woman deserves to feel luxurious, confident, and beautiful â€” and she should never have to choose between her beauty and her beliefs. That is exactly why My Beauty Product exists."
+      <footer style="font-family:var(--font-body);font-size:0.85rem;font-style:normal;color:var(--color-primary);margin-top:1rem;letter-spacing:0.1em;text-transform:uppercase;">â€” Founder, My Beauty Product</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- â•â• Our Values â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="section-padding">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="subheading">What Drives Us</p>
+      <h2 class="heading-xl">Our Core Values</h2>
+      <p>These are the principles that guide every single decision we make, from formulation to packaging to customer service.</p>
+    </div>
+    <div class="about-values">
+      <div class="value-card reveal">
+        <span class="value-icon">ðŸŒ™</span>
+        <h3>Halal First</h3>
+        <p>We begin every product formulation with halal compliance as the non-negotiable foundation. No alcohol, no haram-derived ingredients, no exceptions.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <span class="value-icon">ðŸŒ¿</span>
+        <h3>Ethically Sourced</h3>
+        <p>We source our ingredients responsibly, working only with suppliers who share our commitment to ethical practices, fair trade, and environmental sustainability.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <span class="value-icon">ðŸ’Ž</span>
+        <h3>Uncompromising Quality</h3>
+        <p>Every batch is rigorously tested in certified laboratories before it reaches you. We maintain global luxury standards so you can trust every product.</p>
+      </div>
+      <div class="value-card reveal">
+        <span class="value-icon">âœ¨</span>
+        <h3>Smart Beauty AI</h3>
+        <p>We leverage cutting-edge technology and intelligent shade recommendation advisors to ensure every customer finds their exact match effortlessly.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <span class="value-icon">ðŸŒ</span>
+        <h3>Sustainability</h3>
+        <p>We use recyclable packaging, reduce plastic in our supply chain, and pledge 1% of profits to environmental causes.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <span class="value-icon">ðŸ¤</span>
+        <h3>Community First</h3>
+        <p>From our customer service team to our WhatsApp community, we build genuine, lasting relationships with every member of our family.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• CTA â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="newsletter-section section-padding">
+  <div class="container text-center">
+    <p class="subheading" style="color:rgba(255,255,255,0.6);">Join Us</p>
+    <h2 class="heading-xl" style="color:white;">Become Part of Our Story</h2>
+    <p style="color:rgba(255,255,255,0.7);margin:1rem auto 2rem;max-width:480px;">Shop our full collection and experience the difference that genuine care, quality, and values make in a beauty brand.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="shop.html" class="btn btn-primary btn-lg">Shop Now</a>
+      <a href="ai-assistant.html" class="btn btn-secondary btn-lg" style="border-color:rgba(255,255,255,0.4);color:white;">Ask AI Advisor âœ¨</a>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• Footer â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="site-logo">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <img src="assets/images/logo.svg" alt="Logo" style="height:48px; width:auto; border-radius:4px;" />
+            <div>
+              <span class="logo-main" style="display:block;">My Beauty Product</span>
+              <span class="logo-tagline" style="display:block;">Luxury Â· Halal Â· Timeless</span>
+            </div>
+          </div>
+        </a>
+        <p class="footer-about">Pakistan's premier luxury beauty brand, crafting premium, halal-certified cosmetics.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop All</a></li>
+          <li><a href="ai-assistant.html">AI Beauty Advisor âœ¨</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="track-order.html">Track Order</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Policies</h4>
+        <ul class="footer-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="terms.html#returns">Returns &amp; Refunds</a></li>
+          <li><a href="terms.html#shipping">Shipping Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Contact Us</h4>
+        <div class="footer-contact-item"><span>hello@mybeautyproduct.pk</span></div>
+        <div class="footer-contact-item"><span>+92 300 123 4567</span></div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">Â© 2026 My Beauty Product. All rights reserved.</p>
+      <div class="footer-payment-icons">
+        <span class="payment-badge">JazzCash</span>
+        <span class="payment-badge">EasyPaisa</span>
+        <span class="payment-badge">Bank Transfer</span>
+        <span class="payment-badge">COD</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- â•â• Cart Drawer & Overlay â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping cart" aria-modal="true">
+  <div class="cart-drawer-header">
+    <h2 class="cart-drawer-title">Your Bag</h2>
+    <button class="cart-close-btn" id="cart-close" aria-label="Close cart">âœ•</button>
+  </div>
+  <div class="cart-items" id="cart-items" aria-live="polite"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span class="cart-subtotal-value" id="cart-total">PKR 0</span>
+    </div>
+    <button class="cart-checkout-btn" id="cart-checkout">Proceed to Checkout</button>
+    <button class="cart-continue-btn" onclick="closeCartDrawer()">â† Continue Shopping</button>
+  </div>
+</aside>
+
+<a class="whatsapp-float" href="https://wa.me/923001234567" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>Order on WhatsApp</span>
+</a>
+
+<a class="ai-float" href="mufti.html" id="ai-float-btn" aria-label="Ask Mufti AI">
+  <span class="ai-float-icon">âœ¨</span>
+  <span>مفتی اے۔آئی (Mufti AI)</span>
+</a>
+
+<script src="main.js"></script>
+<script src="cart.js"></script>
+</body>
+</html>

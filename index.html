@@ -1,0 +1,644 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Beauty Product â€” Luxury Halal Beauty & Cosmetics Pakistan</title>
+  <meta name="description" content="My Beauty Product â€” Pakistan's premier luxury beauty brand. Shop premium lipsticks, foundations, serums, and skincare at affordable PKR prices. 100% Halal, cruelty-free cosmetics." />
+  <meta name="keywords" content="beauty products Pakistan, luxury cosmetics PKR, halal makeup, lipstick Pakistan, foundation Pakistan, skincare Pakistan, AI beauty advisor" />
+  <meta property="og:title" content="My Beauty Product â€” Luxury Beauty, Timeless Elegance" />
+  <meta property="og:description" content="Discover Pakistan's finest luxury beauty collection â€” halal-certified, cruelty-free cosmetics crafted with care." />
+  <meta property="og:type" content="website" />
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ðŸ’„</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="has-announcement">
+
+<!-- â•â• Announcement Bar â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="announcement-bar" role="banner">
+  âœ¨ Free delivery on orders above PKR 2,500 &nbsp;|&nbsp; <a href="shop.html">Shop Now â†’</a>
+  <button id="dismiss-bar" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:1rem;" aria-label="Dismiss announcement">âœ•</button>
+</div>
+
+<!-- â•â• Header â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+
+    <!-- Logo -->
+    <a href="index.html" class="site-logo" aria-label="My Beauty Product Home">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="assets/images/logo.svg" alt="My Beauty Product Logo" style="height:48px; width:auto; border-radius:4px;" />
+        <div>
+          <span class="logo-main" style="display:block;">My Beauty Product</span>
+          <span class="logo-tagline" style="display:block;">Luxury Â· Halal Â· Timeless</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Primary Navigation -->
+    <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="mufti.html" class="ai-nav-link">مفتی اے۔آئی <span class="ai-nav-badge">NEW</span></a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="track-order.html">Track Order</a>
+    </nav>
+
+    <!-- Header Social Icons -->
+    <div class="social-icons-header" aria-label="Social media links">
+      <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+      </a>
+    </div>
+
+    <!-- Cart Button -->
+    <button class="cart-btn open-cart" id="cart-trigger" aria-label="Open shopping cart">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span>Bag</span>
+      <span class="cart-badge" id="cart-badge">0</span>
+    </button>
+
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Toggle mobile menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- â•â• Mobile Nav â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="ai-assistant.html" style="color:var(--color-primary);font-weight:600;">âœ¨ AI Beauty Advisor</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <a href="track-order.html">Track Order</a>
+  <div class="mobile-social">
+    <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg></a>
+  </div>
+</nav>
+
+<!-- â•â• Hero â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="hero" id="home" aria-label="Hero banner">
+  <div class="hero-bg loaded" aria-hidden="true" style="background-image: url('assets/images/hero_banner.jpg');"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="subheading">New Collection 2026</span>
+      </div>
+      <h1 class="heading-display">
+        Beauty That Speaks Volumes
+      </h1>
+      <p class="hero-description">
+        Discover Pakistan's finest luxury beauty collection â€” halal-certified, cruelty-free cosmetics crafted for the modern woman who refuses to compromise on quality or conscience.
+      </p>
+      <div class="hero-actions">
+        <a href="shop.html" class="btn btn-primary btn-lg" id="hero-shop-btn">Shop Collection</a>
+        <a href="ai-assistant.html" class="btn btn-secondary btn-lg" id="hero-ai-btn">âœ¨ Consult AI Advisor</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value" data-count="15000" data-suffix="+">15,000+</div>
+          <div class="hero-stat-label">Happy Customers</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" data-count="120" data-suffix="+">120+</div>
+          <div class="hero-stat-label">Premium Products</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" data-count="100" data-suffix="%">100%</div>
+          <div class="hero-stat-label">Halal Certified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• Features Strip â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="features-section section-padding">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-item reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Halal Certified</h3>
+        <p>Every product is 100% halal-certified, giving you complete peace of mind with each use.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-1">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>Cruelty-Free</h3>
+        <p>We never test on animals. Our beauty is ethical, compassionate, and kind to all living beings.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-2">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h3>Free Delivery</h3>
+        <p>Enjoy complimentary nationwide delivery on all orders above PKR 2,500 across Pakistan.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-3">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Premium Packaging</h3>
+        <p>Delivered in luxurious, gift-ready packaging that makes every unboxing a memorable experience.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-4">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <h3>Easy Returns</h3>
+        <p>7-day hassle-free return policy. Your satisfaction is our highest priority, always.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-4">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>24/7 Support</h3>
+        <p>Our beauty experts and AI Advisor are always here to help you find your perfect products.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• Featured Collections â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="section-padding" id="featured-products">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="subheading">Bestsellers</p>
+      <h2 class="heading-xl">Our Signature Collection</h2>
+      <p>Handpicked favourites loved by thousands of women across Pakistan. Luxury you can afford.</p>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- Product 1 -->
+      <div class="product-card reveal" data-product="prod-001" data-product-id="prod-001" data-name="Velvet Rose Lipstick" data-price="1850" data-image="assets/images/product_lipstick.jpg" data-category="Lips">
+        <div class="product-card-img">
+          <span class="product-badge badge-new">Bestseller</span>
+          <img src="assets/images/product_lipstick.jpg" alt="Velvet Rose Lipstick" loading="lazy" />
+          <div class="product-card-actions">
+            <button class="quick-add-btn" data-add-to-cart aria-label="Add Velvet Rose Lipstick to cart">Add to Bag</button>
+            <button class="wishlist-btn" aria-label="Add to wishlist">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-category">Lips</p>
+          <h3 class="product-name">Velvet Rose Lipstick</h3>
+          <div class="star-rating">
+            <div class="stars">
+              <span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span>
+            </div>
+            <span class="rating-count">(284)</span>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">PKR 1,850</span>
+            <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card reveal reveal-delay-1" data-product="prod-002" data-product-id="prod-002" data-name="Luminous Glow Foundation" data-price="2990" data-image="assets/images/product_foundation.jpg" data-category="Face">
+        <div class="product-card-img">
+          <img src="assets/images/product_foundation.jpg" alt="Luminous Glow Foundation" loading="lazy" />
+          <div class="product-card-actions">
+            <button class="quick-add-btn" data-add-to-cart aria-label="Add Luminous Glow Foundation to cart">Add to Bag</button>
+            <button class="wishlist-btn" aria-label="Add to wishlist">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-category">Face</p>
+          <h3 class="product-name">Luminous Glow Foundation</h3>
+          <div class="star-rating">
+            <div class="stars">
+              <span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star">â˜…</span>
+            </div>
+            <span class="rating-count">(196)</span>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">PKR 2,990</span>
+            <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card reveal reveal-delay-2" data-product="prod-003" data-product-id="prod-003" data-name="Radiance Face Serum" data-price="3450" data-image="assets/images/product_serum.jpg" data-category="Skincare">
+        <div class="product-card-img">
+          <span class="product-badge badge-new">New</span>
+          <img src="assets/images/product_serum.jpg" alt="Radiance Face Serum" loading="lazy" />
+          <div class="product-card-actions">
+            <button class="quick-add-btn" data-add-to-cart aria-label="Add Radiance Face Serum to cart">Add to Bag</button>
+            <button class="wishlist-btn" aria-label="Add to wishlist">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-category">Skincare</p>
+          <h3 class="product-name">Radiance Face Serum</h3>
+          <div class="star-rating">
+            <div class="stars">
+              <span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span>
+            </div>
+            <span class="rating-count">(421)</span>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">PKR 3,450</span>
+            <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card reveal reveal-delay-1" data-product="prod-004" data-product-id="prod-004" data-name="Smoky Eyes Palette" data-price="2200" data-image="assets/images/product_eyeshadow.jpg" data-category="Eyes">
+        <div class="product-card-img">
+          <span class="product-badge badge-sale">Sale</span>
+          <img src="assets/images/product_eyeshadow.jpg" alt="Smoky Eyes Palette" loading="lazy" />
+          <div class="product-card-actions">
+            <button class="quick-add-btn" data-add-to-cart aria-label="Add Smoky Eyes Palette to cart">Add to Bag</button>
+            <button class="wishlist-btn" aria-label="Add to wishlist">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-category">Eyes</p>
+          <h3 class="product-name">Smoky Eyes Palette</h3>
+          <div class="star-rating">
+            <div class="stars">
+              <span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star">â˜…</span>
+            </div>
+            <span class="rating-count">(158)</span>
+          </div>
+          <div class="product-meta">
+            <div>
+              <span class="product-price-original">PKR 2,800</span>
+              <span class="product-price">PKR 2,200</span>
+            </div>
+            <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card reveal reveal-delay-2" data-product="prod-005" data-product-id="prod-005" data-name="Blush & Contour Kit" data-price="1750" data-image="assets/images/product_blush.jpg" data-category="Face">
+        <div class="product-card-img">
+          <img src="assets/images/product_blush.jpg" alt="Blush & Contour Kit" loading="lazy" />
+          <div class="product-card-actions">
+            <button class="quick-add-btn" data-add-to-cart aria-label="Add Blush & Contour Kit to cart">Add to Bag</button>
+            <button class="wishlist-btn" aria-label="Add to wishlist">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-category">Face</p>
+          <h3 class="product-name">Blush & Contour Kit</h3>
+          <div class="star-rating">
+            <div class="stars">
+              <span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span>
+            </div>
+            <span class="rating-count">(312)</span>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">PKR 1,750</span>
+            <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card reveal reveal-delay-3" data-product="prod-006" data-product-id="prod-006" data-name="Diamond Highlighter" data-price="1950" data-image="assets/images/product_highlighter.jpg" data-category="Face">
+        <div class="product-card-img">
+          <span class="product-badge badge-new">Fan Fave</span>
+          <img src="assets/images/product_highlighter.jpg" alt="Diamond Highlighter" loading="lazy" />
+          <div class="product-card-actions">
+            <button class="quick-add-btn" data-add-to-cart aria-label="Add Diamond Highlighter to cart">Add to Bag</button>
+            <button class="wishlist-btn" aria-label="Add to wishlist">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-category">Face</p>
+          <h3 class="product-name">Diamond Highlighter</h3>
+          <div class="star-rating">
+            <div class="stars">
+              <span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span>
+            </div>
+            <span class="rating-count">(239)</span>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">PKR 1,950</span>
+            <button class="btn btn-primary btn-sm" data-add-to-cart>Add</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center" style="margin-top:3rem;">
+      <a href="shop.html" class="btn btn-outline-gold btn-lg" id="view-all-btn">View Full Collection</a>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• Promo Banner â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="promo-strip reveal">
+  <div class="container">
+    <h2>Ramadan &amp; Eid Exclusive Sets</h2>
+    <p>Curated gift sets starting from PKR 2,999 â€” perfect for gifting the women you love.</p>
+    <a href="shop.html" class="btn btn-secondary btn-sm" style="margin-top:1.2rem;border-color:rgba(255,255,255,0.5);color:white;" id="promo-shop-btn">Shop Gift Sets</a>
+  </div>
+</div>
+
+<!-- â•â• Customer Reviews â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="reviews-section section-padding" id="reviews">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="subheading">Testimonials</p>
+      <h2 class="heading-xl">What Our Customers Say</h2>
+      <p>Join thousands of happy customers who trust My Beauty Product for their everyday glamour.</p>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card reveal">
+        <div class="star-rating" style="margin-bottom:0.75rem;">
+          <div class="stars"><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span></div>
+        </div>
+        <p class="review-text">"I've been using their Velvet Rose Lipstick for 6 months and I'm obsessed! The colour is stunning, it lasts all day, and knowing it's halal makes me feel even better. This is luxury I can actually afford in Pakistan."</p>
+        <div class="review-author">
+          <div class="review-avatar">SA</div>
+          <div>
+            <div class="review-name">Sana Aslam</div>
+            <div class="review-product">Velvet Rose Lipstick</div>
+            <div class="review-date">Lahore</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-1">
+        <div class="star-rating" style="margin-bottom:0.75rem;">
+          <div class="stars"><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span></div>
+        </div>
+        <p class="review-text">"The packaging alone made me gasp! Felt like I'd received a gift from a European luxury brand. The Radiance Serum has transformed my skin in just 3 weeks â€” I'm glowing and my dark spots are visibly lighter."</p>
+        <div class="review-author">
+          <div class="review-avatar">FM</div>
+          <div>
+            <div class="review-name">Fatima Malik</div>
+            <div class="review-product">Radiance Face Serum</div>
+            <div class="review-date">Karachi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-2">
+        <div class="star-rating" style="margin-bottom:0.75rem;">
+          <div class="stars"><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span><span class="star filled">â˜…</span></div>
+        </div>
+        <p class="review-text">"Ordered via WhatsApp and my parcel arrived the next day! The foundation shade matched me perfectly and the coverage is buildable but never cakey. Customer service was extremely professional and prompt."</p>
+        <div class="review-author">
+          <div class="review-avatar">RK</div>
+          <div>
+            <div class="review-name">Raheela Khan</div>
+            <div class="review-product">Luminous Glow Foundation</div>
+            <div class="review-date">Islamabad</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- â•â• FAQ Preview â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="section-padding" id="faq-preview">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="subheading">FAQ</p>
+      <h2 class="heading-xl">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <details>
+          <summary class="faq-question">Are your products really Halal certified? <span class="faq-icon">+</span></summary>
+          <div class="faq-answer">Yes! Every single My Beauty Product product is 100% halal-certified. We do not use any animal-derived ingredients, alcohol, or prohibited chemicals. Certified by a recognized Pakistani halal authority.</div>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary class="faq-question">How long does delivery take? <span class="faq-icon">+</span></summary>
+          <div class="faq-answer">We offer 1â€”3 business day delivery across major cities in Pakistan (Karachi, Lahore, Islamabad, Rawalpindi, Peshawar, Faisalabad, Multan). Remote areas take 3â€”5 business days.</div>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary class="faq-question">What is your return policy? <span class="faq-icon">+</span></summary>
+          <div class="faq-answer">We offer a 7-day hassle-free return policy on all unopened items. If an item arrives damaged or incorrect, we replace it or refund you completely free of charge.</div>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary class="faq-question">Can I order via WhatsApp? <span class="faq-icon">+</span></summary>
+          <div class="faq-answer">Absolutely! Click the WhatsApp button at any time to order directly or speak with our beauty advisors.</div>
+        </details>
+      </div>
+
+    </div>
+    <div class="text-center" style="margin-top:2rem;">
+      <a href="faq.html" class="btn btn-outline-gold" id="all-faq-btn">View All FAQs</a>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• Newsletter â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section class="newsletter-section section-padding-sm">
+  <div class="container">
+    <p class="subheading" style="color:rgba(255,255,255,0.6);margin-bottom:0.5rem;">Stay in the Loop</p>
+    <h2 class="heading-lg" style="color:white;">New Arrivals &amp; Secret Sales</h2>
+    <p>Be the first to know about new launches, exclusive offers, and insider-only discounts delivered to your inbox.</p>
+    <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing! Check your inbox for 10% off.', 'success'); this.reset();">
+      <input type="email" placeholder="Enter your email address" required aria-label="Email address for newsletter" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="newsletter-benefits">
+      <span class="newsletter-benefit">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        10% off your first order
+      </span>
+      <span class="newsletter-benefit">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Exclusive member discounts
+      </span>
+      <span class="newsletter-benefit">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Early access to new arrivals
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• Footer â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <a href="index.html" class="site-logo">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <img src="assets/images/logo.svg" alt="Logo" style="height:48px; width:auto; border-radius:4px;" />
+            <div>
+              <span class="logo-main" style="display:block;">My Beauty Product</span>
+              <span class="logo-tagline" style="display:block;">Luxury Â· Halal Â· Timeless</span>
+            </div>
+          </div>
+        </a>
+        <p class="footer-about">Pakistan's premier luxury beauty brand, crafting premium, halal-certified, cruelty-free cosmetics for the discerning modern woman since 2020.</p>
+        <div class="footer-social">
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" class="footer-social-icon" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop All</a></li>
+          <li><a href="ai-assistant.html">AI Beauty Advisor âœ¨</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="track-order.html">Track Order</a></li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div>
+        <h4 class="footer-heading">Policies</h4>
+        <ul class="footer-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="terms.html#returns">Returns &amp; Refunds</a></li>
+          <li><a href="terms.html#shipping">Shipping Policy</a></li>
+          <li><a href="terms.html#halal">Halal Guarantee</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="footer-heading">Contact Us</h4>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Karachi, Pakistan</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>hello@mybeautyproduct.pk</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 9.93a19.79 19.79 0 01-3-8.59A2 2 0 012.48 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.45a16 16 0 006.29 6.29l1.39-1.39a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span>+92 300 123 4567</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Mon â€” Sat: 10am â€” 8pm PKT</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">Â© 2026 My Beauty Product. All rights reserved. Made with â™¥ in Pakistan.</p>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="mufti.html">مفتی اے۔آئی</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-payment-icons">
+        <span>We accept:</span>
+        <span class="payment-badge">JazzCash</span>
+        <span class="payment-badge">EasyPaisa</span>
+        <span class="payment-badge">Bank Transfer</span>
+        <span class="payment-badge">COD</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- â•â• Cart Overlay & Drawer â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping cart" aria-modal="true">
+  <div class="cart-drawer-header">
+    <h2 class="cart-drawer-title">Your Bag</h2>
+    <button class="cart-close-btn" id="cart-close" aria-label="Close cart">âœ•</button>
+  </div>
+  <div class="cart-items" id="cart-items" aria-live="polite"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span class="cart-subtotal-value" id="cart-total">PKR 0</span>
+    </div>
+    <button class="cart-checkout-btn" id="cart-checkout">Proceed to Checkout</button>
+    <button class="cart-continue-btn" onclick="closeCartDrawer()">â† Continue Shopping</button>
+  </div>
+</aside>
+
+<!-- â•â• Floating WhatsApp Button â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<a class="whatsapp-float"
+   href="https://wa.me/923001234567?text=Hi!%20I%20am%20interested%20in%20your%20beauty%20products.%20Can%20you%20help%20me%3F"
+   target="_blank"
+   rel="noopener"
+   id="whatsapp-float-btn"
+   aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span>Order on WhatsApp</span>
+</a>
+
+<!-- â•â• Floating AI Advisor Button â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<a class="ai-float" href="mufti.html" id="ai-float-btn" aria-label="Ask Mufti AI">
+  <span class="ai-float-icon">âœ¨</span>
+  <span>مفتی اے۔آئی (Mufti AI)</span>
+</a>
+
+<!-- Scripts -->
+<script src="main.js"></script>
+<script src="cart.js"></script>
+</body>
+</html>
