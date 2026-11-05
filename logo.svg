@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C285"/>
+      <stop offset="50%" stop-color="#C9A96E"/>
+      <stop offset="100%" stop-color="#9E7E45"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(50, 50)">
+    <!-- Central diamond -->
+    <path d="M 0 -35 L 15 0 L 0 35 L -15 0 Z" fill="none" stroke="url(#gold)" stroke-width="3.5" stroke-linejoin="round"/>
+    <!-- Left leaf -->
+    <path d="M 0 -20 C -30 -20, -38 0, -38 0 C -38 0, -30 20, 0 20" fill="none" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Right leaf -->
+    <path d="M 0 -20 C 30 -20, 38 0, 38 0 C 38 0, 30 20, 0 20" fill="none" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Center core -->
+    <path d="M 0 -15 L 6 0 L 0 15 L -6 0 Z" fill="url(#gold)"/>
+    <!-- Top accent dot -->
+    <circle cx="0" cy="-48" r="4" fill="url(#gold)"/>
+  </g>
+</svg>
